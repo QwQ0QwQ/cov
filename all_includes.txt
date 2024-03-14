@@ -1,0 +1,450 @@
+### html
+JSHandle@<html>…</html>
+JSHandle@<head>…</head>
+JSHandle@<meta http-equiv="Content-Type" content="text/html;cha…/>
+JSHandle@<meta content="IE=edge,chrome=1" http-equiv="X-UA-Comp…/>
+JSHandle@<meta name="referrer" content="always"/>
+JSHandle@<meta content="#ffffff" name="theme-color"/>
+JSHandle@<meta name="description" content="全球领先的中文搜索引擎、致力于让网民更便…/>
+JSHandle@<link rel="shortcut icon" type="image/x-icon" href="ht…/>
+JSHandle@<link rel="search" title="百度搜索" href="/content-search.…/>
+JSHandle@<link mask="" rel="icon" sizes="any" href="https://www…/>
+JSHandle@<link rel="dns-prefetch" href="//dss0.bdstatic.com"/>
+JSHandle@<link rel="dns-prefetch" href="//dss1.bdstatic.com"/>
+JSHandle@<link rel="dns-prefetch" href="//ss1.bdstatic.com"/>
+JSHandle@<link rel="dns-prefetch" href="//sp0.baidu.com"/>
+JSHandle@<link rel="dns-prefetch" href="//sp1.baidu.com"/>
+JSHandle@<link rel="dns-prefetch" href="//sp2.baidu.com"/>
+JSHandle@<link rel="dns-prefetch" href="//pss.bdstatic.com"/>
+JSHandle@<link rel="apple-touch-icon-precomposed" href="https:/…/>
+JSHandle@<title>百度一下，你就知道</title>
+JSHandle@<style index="newi" type="text/css">#form .bdsug{top:39px}.bdsug{display:none;positio…</style>
+JSHandle@<style type="text/css" index="superbase">blockquote,body,button,dd,dl,dt,fieldset,form,h1,…</style>
+JSHandle@<style index="index" type="text/css">body,html{height:100%}↵html{overflow-y:auto}↵body…</style>
+JSHandle@<style index="common" type="text/css">#head_wrapper{position:relative;height:40%;min-he…</style>
+JSHandle@<style type="text/css" index="hotsearch">.s-hotsearch-wrapper{width:654px;margin:45px auto…</style>
+JSHandle@<style index="nav" type="text/css">.t-color{color:#222}↵#s_main.show-main{display:bl…</style>
+JSHandle@<script>↵        (function(){↵        var hashMatch=docum…</script>
+JSHandle@<script data-compress="strip">↵        function h(obj){↵            obj.style.b…</script>
+JSHandle@<script>↵        _manCard = {↵            asynJs : [],↵  …</script>
+JSHandle@<script id="topmenuloc-data" data-for="result-data" type…>↵    {"aiIcon":"data:image\/png;base64,iVBORw0KGg…</script>
+JSHandle@<script data-for="result-data" type="application/json" i…>↵    {"isBdWordLinkRecallFromGuide":"","bdWordLin…</script>
+JSHandle@<script data-for="result-data" type="application/json" i…>↵    ""</script>
+JSHandle@<script type="text/javascript">"use strict";function _classCallCheck(instance,Co…</script>
+JSHandle@<script>↵this.globalThis || (this.globalThis = this);↵</script>
+JSHandle@<noscript><meta http-equiv="refresh" content="0; url=http:/…</noscript>
+JSHandle@<script async="" data-require-id="tslib" src="https://ps…></script>
+JSHandle@<script async="" data-require-id="plugins/bzPopper" src=…></script>
+JSHandle@<script async="" data-require-id="plugins/swfobject" src…></script>
+JSHandle@<script async="" data-require-id="soutu/js/tu" src="http…></script>
+JSHandle@<script async="" data-require-id="@baidu/search-sug" src…></script>
+JSHandle@<link type="text/css" rel="stylesheet" data-for="resul…/>
+JSHandle@<style type="text/css" id="guarantee-popper-style">#guaranteePopper{text-align:left}#guaranteePopper…</style>
+JSHandle@<script async="" data-require-id="superman/components/lo…></script>
+JSHandle@<script async="" data-require-id="superman/components/pl…></script>
+JSHandle@<script async="" data-require-id="superman/components/vi…></script>
+JSHandle@<script async="" data-require-id="superman/components/co…></script>
+JSHandle@<script async="" data-require-id="superman/components/ai…></script>
+JSHandle@<script async="" data-require-id="superman/components/to…></script>
+JSHandle@<script async="" data-require-id="superman/components/ag…></script>
+JSHandle@<script async="" data-require-id="superman/components/in…></script>
+JSHandle@<script async="" data-require-id="@baidu/video-meeting" …></script>
+JSHandle@<script async="" data-require-id="superman/components/gu…></script>
+JSHandle@<script async="" data-require-id="ai-search-box-entry" s…></script>
+JSHandle@<script async="" data-require-id="@baidu/aging-tools-pc"…></script>
+JSHandle@<link rel="stylesheet" href="https://pss.bdstatic.com/…/>
+JSHandle@<style>.no-scroll {↵  overflow: hidden;↵}↵#video-meeting…</style>
+JSHandle@<style>.iframe-wrapper_-UGwB {↵  height: 490px;↵  width:…</style>
+JSHandle@<style>.header_2xS7W {↵  height: 54px;↵  width: 100%;↵  …</style>
+JSHandle@<style>.select_2ORf2 {↵  border: 1px solid #D7D9E0;↵  bo…</style>
+JSHandle@<style>.toast-wrapper_PdGvs {↵  opacity: 0;↵  position: …</style>
+JSHandle@<style>.mask-wrap_3BvzO {↵  display: inline-block;↵  lin…</style>
+JSHandle@<style>.label_1LZ0S {↵  cursor: pointer;↵}↵.canhover_QzJ…</style>
+JSHandle@<style>.btn-white_2Jw-w {↵  background: #fff !important;…</style>
+JSHandle@<style>.input-wrapper_2wRPm .input_1XoiK {↵  box-sizing:…</style>
+JSHandle@<style>.calendar-all_HdkG3 {↵  position: relative;↵  wid…</style>
+JSHandle@<style></style>
+JSHandle@<style></style>
+JSHandle@<style>.content_1PgUj {↵  padding: 36px 24px;↵  position…</style>
+JSHandle@<style>.foot_4Pf4r {↵  font-size: 12px;↵  position: abso…</style>
+JSHandle@<style>.flow-container_15AFv {↵  box-shadow: none;↵  bac…</style>
+JSHandle@<style>.wrapper_YeQoN {↵  font-size: 12px;↵  color: #f73…</style>
+JSHandle@<style>.content_2aDja {↵  padding: 16px 22px;↵  text-ali…</style>
+JSHandle@<style>.emailWrapper_1hcAK {↵  position: relative;↵  dis…</style>
+JSHandle@<style>.content_3wd8k {↵  padding: 81px 0 24px;↵}↵.conte…</style>
+JSHandle@<style>.manage-wrapper_279X9 .bar-content_2jCA8 {↵  padd…</style>
+JSHandle@<style>.item-wrapper_1LNDO {↵  margin-top: 20px;↵  width…</style>
+JSHandle@<style>.compat-wrapper_opFH_ {↵  position: absolute;↵  t…</style>
+JSHandle@<style>.compat-wrapper_zyalQ {↵  position: absolute;↵  t…</style>
+JSHandle@<style>.entry-status-box_2HTVK {↵  width: 100%;↵  height…</style>
+JSHandle@<style type="text/css" data-for="result" class="ai-cont…>↵            #ai-talk-container {↵               …</style>
+JSHandle@<style type="text/css" data-for="result">.tools-wrap_TM9u8,↵.tools-wrap-new_6HSYA {↵  posi…</style>
+JSHandle@<style type="text/css" data-for="result">@media screen and (min-width: 1116px) {↵  .aging-…</style>
+JSHandle@<style type="text/css" data-for="result">.item-wrap_fLQ-9 {↵  display: inline-block;↵  cur…</style>
+JSHandle@<style type="text/css" data-for="result">.line_biMr9 {↵  position: fixed;↵  z-index: 999;↵…</style>
+JSHandle@<style type="text/css" data-for="result">.float-wrap_giJYT {↵  background: #fff;↵  box-sha…</style>
+JSHandle@<style type="text/css" data-for="result">.voice-wrap_3jP_f {↵  display: inline-block;↵}↵.a…</style>
+JSHandle@<style type="text/css" data-for="result">.big-wrap_1tRU- {↵  display: inline-block;↵}↵</style>
+JSHandle@<style type="text/css" data-for="result">.pop-wrap_1uXqB {↵  background: #FFF;↵  box-shado…</style>
+JSHandle@<style type="text/css" data-for="result">.left_WZkhf {↵  float: left;↵}↵.right_2aKzf {↵  f…</style>
+JSHandle@<body ssr="n" class="cos-pc">…</body>
+JSHandle@<a tabindex="0" id="aging-total-page" role="pagedes…></a>
+JSHandle@<div id="ai-talk-container"></div>
+JSHandle@<script>↵    if (navigator.userAgent.indexOf('Edge') > -1…</script>
+JSHandle@<textarea id="s_is_result_css"><style data-for="result" type="text/css" >body{co…</textarea>
+JSHandle@<textarea id="s_index_off_css"><style data-for="result" id="css_result" type="te…</textarea>
+JSHandle@<div id="wrapper" class="wrapper_new">…</div>
+JSHandle@<script>↵if(window.bds&&bds.util&&bds.util.setContainerWi…</script>
+JSHandle@<div id="head">…</div>
+JSHandle@<div id="s_top_wrap" class="s-top-wrap s-isindex-wrap…>…</div>
+JSHandle@<div class="s-top-nav"></div>
+JSHandle@<div class="s-center-box"></div>
+JSHandle@<div id="u">…</div>
+JSHandle@<a href="/" class="toindex">百度首页</a>
+JSHandle@<a class="pf" href="javascript:;" name="tj_settingi…>…</a>
+JSHandle@<i class="c-icon c-icon-triangle-down"></i>
+JSHandle@<a class="lb" name="tj_login" onclick="return false…>登录</a>
+JSHandle@<div class="bdpfmenu"></div>
+JSHandle@<div id="s-top-left" class="s-top-left-new s-isindex-…>…</div>
+JSHandle@<a target="_blank" href="http://news.baidu.com" cla…>新闻</a>
+JSHandle@<a target="_blank" class="mnav c-font-normal c-colo…>hao123</a>
+JSHandle@<a target="_blank" href="http://map.baidu.com" clas…>地图</a>
+JSHandle@<a target="_blank" href="http://tieba.baidu.com/" c…>贴吧</a>
+JSHandle@<a target="_blank" class="mnav c-font-normal c-colo…>视频</a>
+JSHandle@<a target="_blank" href="http://image.baidu.com/" c…>图片</a>
+JSHandle@<a target="_blank" class="mnav c-font-normal c-colo…>网盘</a>
+JSHandle@<a target="_blank" class="mnav c-font-normal c-colo…>文库</a>
+JSHandle@<div class="mnav s-top-more-btn">…</div>
+JSHandle@<a target="_blank" name="tj_briicon" href="http://w…>更多</a>
+JSHandle@<div id="s-top-more" class="s-top-more">…</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a target="_blank" name="tj_fanyi" class="img-spaci…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">翻译</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a target="_blank" name="tj_xueshu" class="img-spac…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">学术</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a class="" target="_blank" name="tj_baike" href="h…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">百科</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a target="_blank" name="tj_zhidao" class="img-spac…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">知道</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a target="_blank" name="tj_jiankang" class="img-sp…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">健康</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a target="_blank" class="img-spacing" name="tj_yin…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">营销推广</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a name="tj_live" target="_blank" class="img-spacin…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">直播</div>
+JSHandle@<div class="s-top-more-content clearfix">…</div>
+JSHandle@<a name="tj_mp3" target="_blank" class="img-spacing…>…</a>
+JSHandle@<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/…/>
+JSHandle@<div class="s-top-more-title c-font-normal c-color-t">音乐</div>
+JSHandle@<div class="s-top-tomore">…</div>
+JSHandle@<a name="tj_more" target="_blank" href="http://www.…>查看全部百度产品 ></a>
+JSHandle@<div id="u1" class="s-top-right s-isindex-wrap">…</div>
+JSHandle@<span name="tj_settingicon" id="s-usersetting-top" cla…>设置</span>
+JSHandle@<a name="tj_login" id="s-top-loginbtn" onclick="ret…>登录</a>
+JSHandle@<div id="s-user-setting-menu" class="s-top-userset-me…>…</div>
+JSHandle@<div class="s-user-setting-pfmenu"></div>
+JSHandle@<a href="javascript:;" class="s-set-hotsearch set-h…>关闭热搜</a>
+JSHandle@<a href="javascript:;" class="s-set-hotsearch set-s…>开启热搜</a>
+JSHandle@<div class="guide-info ">…</div>
+JSHandle@<i class="c-icon guide-icon"></i>
+JSHandle@<span>牛年贺岁，登录设置新春皮肤！</span>
+JSHandle@<i class="c-icon guide-close"></i>
+JSHandle@<div id="head_wrapper" class="head_wrapper s-isindex-…>…</div>
+JSHandle@<div class="s_form s_form_nologin">…</div>
+JSHandle@<div class="s_form_wrapper soutu-env-nomac soutu-env-…>…</div>
+JSHandle@<style>↵                    .index-logo-srcnew,↵        …</style>
+JSHandle@<div id="lg" class="s-p-top">…</div>
+JSHandle@<img width="270" height="129" usemap="#mp" id="s_lg_i…/>
+JSHandle@<img width="270" height="129" usemap="#mp" hidefocus=…/>
+JSHandle@<img width="270" height="129" usemap="#mp" hidefocus=…/>
+JSHandle@<map name="mp">…</map>
+JSHandle@<area shape="rect" target="_blank" hidefocus="true" ti…/>
+JSHandle@<a href="/" id="result_logo" onmousedown="return c(…>…</a>
+JSHandle@<img alt="到百度首页" title="到百度首页" class="index-logo-src"…/>
+JSHandle@<img alt="到百度首页" title="到百度首页" class="index-logo-srcn…/>
+JSHandle@<img alt="到百度首页" title="到百度首页" class="index-logo-peak…/>
+JSHandle@<form name="f" id="form" action="/s" class="fm  has-so…>…</form>
+JSHandle@<input name="ie" type="hidden" value="utf-8"/>
+JSHandle@<input name="f" value="8" type="hidden"/>
+JSHandle@<input value="1" type="hidden" name="rsv_bp"/>
+JSHandle@<input value="1" type="hidden" name="rsv_idx"/>
+JSHandle@<input value="" name="ch" type="hidden"/>
+JSHandle@<input name="tn" type="hidden" value="baidu"/>
+JSHandle@<input value="" name="bar" type="hidden"/>
+JSHandle@<span class="bg s_ipt_wr new-pmd iptfocus quickdelete-…>…</span>
+JSHandle@<span class="soutu-btn"></span>
+JSHandle@<input id="kw" value="" name="wd" class="s_ipt" maxleng…/>
+JSHandle@<i title="清空" class="c-icon quickdelete c-color-gra…></i>
+JSHandle@<i class="quickdelete-line"></i>
+JSHandle@<span class="soutu-hover-tip">按图片搜索</span>
+JSHandle@<span class="bg s_btn_wr">…</span>
+JSHandle@<input id="su" value="百度一下" type="submit" class="bg s_b…/>
+JSHandle@<span class="tools">…</span>
+JSHandle@<span id="mHolder">…</span>
+JSHandle@<div id="mCon">…</div>
+JSHandle@<span>↵                                    输入法</span>
+JSHandle@<ul id="mMenu">…</ul>
+JSHandle@<li>…</li>
+JSHandle@<a name="ime_hw" href="javascript:;">↵                                    手写</a>
+JSHandle@<li>…</li>
+JSHandle@<a name="ime_py" href="javascript:;">↵                                    拼音</a>
+JSHandle@<li class="ln"></li>
+JSHandle@<li>…</li>
+JSHandle@<a name="ime_cl" href="javascript:;">↵                                    关闭</a>
+JSHandle@<input value="" name="rn" type="hidden"/>
+JSHandle@<input value="256" type="hidden" name="fenlei"/>
+JSHandle@<input value="" name="oq" type="hidden"/>
+JSHandle@<input type="hidden" name="rsv_pq" value="0x8c03ad82002…/>
+JSHandle@<input name="rsv_t" type="hidden" value="c0384RaGw+ZEgS…/>
+JSHandle@<input value="en" type="hidden" name="rqlang"/>
+JSHandle@<input value="1" type="hidden" name="rsv_enter"/>
+JSHandle@<input value="ib" type="hidden" name="rsv_dl"/>
+JSHandle@<div id="m" class="↵                    under-searchb…>…</div>
+JSHandle@<div id="lm-new"></div>
+JSHandle@<div id="s-hotsearch-wrapper" class="s-isindex-wrap s…>…</div>
+JSHandle@<div class="s-hotsearch-title">…</div>
+JSHandle@<a target="_blank" class="hot-title" href="https://…>…</a>
+JSHandle@<div aria-label="百度热搜" class="title-text c-font-mediu…>…</div>
+JSHandle@<i class="c-icon"></i>
+JSHandle@<i class="c-icon arrow"></i>
+JSHandle@<a id="hotsearch-refresh-btn" class="hot-refresh c-…>…</a>
+JSHandle@<i class="c-icon refresh-icon"></i>
+JSHandle@<span class="hot-refresh-text">换一换</span>
+JSHandle@<ul class="s-hotsearch-content" id="hotsearch-conten…>…</ul>
+JSHandle@<li data-index="0" class="hotsearch-item odd">…</li>
+JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>0</span>
+JSHandle@<span class="title-content-title">习近平这样谈“增进民生福祉”</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<li data-index="3" class="hotsearch-item even">…</li>
+JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>3</span>
+JSHandle@<span class="title-content-title">用丰富“花活”留住更多游客</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<li data-index="1" class="hotsearch-item odd">…</li>
+JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>1</span>
+JSHandle@<span class="title-content-title">婚礼后男方拒领证要回5万多彩礼</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<li data-index="4" class="hotsearch-item even">…</li>
+JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>4</span>
+JSHandle@<span class="title-content-title">清华大学教授称大学越来越像工厂</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<li data-index="2" class="hotsearch-item odd">…</li>
+JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>2</span>
+JSHandle@<span class="title-content-title">免签朋友圈今起再添6国</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<li data-index="5" class="hotsearch-item even">…</li>
+JSHandle@<a target="_blank" class="title-content tag-width c…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>5</span>
+JSHandle@<span class="title-content-title">总理考察自动驾驶</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…>热</span>
+JSHandle@<textarea id="hotsearch_data">{"hotsearch":[{"card_title": "习近平这样谈“增进民生福祉”","li…</textarea>
+JSHandle@<div id="s_wrap" class="s-isindex-wrap">…</div>
+JSHandle@<div id="s_main" class="main clearfix "></div>
+JSHandle@<div id="bottom_layer" class="s-bottom-layer s-isinde…>…</div>
+JSHandle@<div class="s-bottom-layer-content">…</div>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//home.…>关于百度</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="http://…>About Baidu</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//www.b…>使用百度前必读</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//help.…>帮助中心</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="https:/…>企业推广</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="http://…>京公网安备11000002000001号</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="https:/…>京ICP证030173号</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">互联网新闻信息服务许可证11220180008</span>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">网络文化经营许可证： 京网文〔2023〕1034-029号</span>
+JSHandle@<p class="lh">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//www.b…>信息网络传播视听节目许可证 0110516</a>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">互联网宗教信息服务许可证编号：京（2022）0000043</span>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">药品医疗器械网络信息服务备案（京）网药械信息备字（2021）第00159号</span>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">医疗器械网络交易服务第三方平台备案凭证（京）网械平台备字（2020）第00002号</span>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">药品网络交易服务第三方平台备案凭证（京）网药平台备字〔2023〕第000002号</span>
+JSHandle@<p class="lh">…</p>
+JSHandle@<span class="text-color">©2024 Baidu </span>
+JSHandle@<div class="accessibility-icon">…</div>
+JSHandle@<span class="c-icon"></span>
+JSHandle@<div class="open-content-info">…</div>
+JSHandle@<span class="c-icon c-color-gray2"></span>
+JSHandle@<div class="tip-hover-panel">…</div>
+JSHandle@<div class="rest_info_tip">…</div>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="http://…>About Baidu</a>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//www.b…>使用百度前必读</a>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//help.…>帮助中心</a>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="https:/…>企业推广</a>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="http://…>京公网安备11000002000001号</a>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="https:/…>京ICP证030173号</a>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">互联网新闻信息服务许可证11220180008</span>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">网络文化经营许可证： 京网文〔2023〕1034-029号</span>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<a target="_blank" class="text-color" href="//www.b…>信息网络传播视听节目许可证 0110516</a>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">互联网宗教信息服务许可证编号：京（2022）0000043</span>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">药品医疗器械网络信息服务备案（京）网药械信息备字（2021）第00159号</span>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">医疗器械网络交易服务第三方平台备案凭证（京）网械平台备字（2020）第00002号</span>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">药品网络交易服务第三方平台备案凭证（京）网药平台备字〔2023〕第000002号</span>
+JSHandle@<div class="tip-wrapper">…</div>
+JSHandle@<p class="lh tip-item">…</p>
+JSHandle@<span class="text-color">©2024 Baidu </span>
+JSHandle@<div id="bottom_space" class="s-bottom-space"></div>
+JSHandle@<script id="promote_login_box" type="application/json">↵    []↵</script>
+JSHandle@<div id="s_tab" class="s_tab ">…</div>
+JSHandle@<div class="s_tab_inner">…</div>
+JSHandle@<b class="cur-tab">网页</b>
+JSHandle@<a sync="true" wdfield="word" class="s-tab-item s-t…>资讯</a>
+JSHandle@<a wdfield="word" class="s-tab-item s-tab-video" on…>视频</a>
+JSHandle@<a wdfield="word" class="s-tab-item s-tab-pic" onmo…>图片</a>
+JSHandle@<a wdfield="word" class="s-tab-item s-tab-zhidao" o…>知道</a>
+JSHandle@<a wdfield="word" class="s-tab-item s-tab-wenku" on…>文库</a>
+JSHandle@<a wdfield="kw" class="s-tab-item s-tab-tieba" href…>贴吧</a>
+JSHandle@<a class="s-tab-item s-tab-map" onmousedown="return…>地图</a>
+JSHandle@<a wdfield="q" class="s-tab-item s-tab-b2b" href="h…>采购</a>
+JSHandle@<a class="s-tab-item s-tab-more" href="http://www.b…>更多</a>
+JSHandle@<div id="s_side_wrapper">…</div>
+JSHandle@<div class="side-entry aging-entry">…</div>
+JSHandle@<div class="aging-entry-inner"></div>
+JSHandle@<div class="c-color-text toast">辅助模式</div>
+JSHandle@<div id="s_qrcode_nologin" class="qrcode-nologin side…>…</div>
+JSHandle@<div class="qrcode-layer icon-mask-wrapper">…</div>
+JSHandle@<img class="icon" src="https://pss.bdstatic.com/stati…/>
+JSHandle@<img class="icon-hover" src="https://pss.bdstatic.com…/>
+JSHandle@<div class="tooltip qrcode-tooltip">…</div>
+JSHandle@<div class="text">…</div>
+JSHandle@<div class="login-text">…</div>
+JSHandle@<i class="c-icon login-icon"></i>
+JSHandle@<div class="login-info">百度一下 生活更好</div>
+JSHandle@<div id="qrcode-login-wrapper"></div>
+JSHandle@<div id="wrapper_wrapper"></div>
+JSHandle@<div id="c-tips-container" class="c-tips-container"></div>
+JSHandle@<script> ↵    ↵    ↵↵var bds = {↵    se: {},↵    su: {↵  …</script>
+JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>
+JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>
+JSHandle@<script data-for="esl-config">(function(){var amd={keys:{},addPaths:function(op…</script>
+JSHandle@<script type="text/javascript">bds.util.domain=function(){var list=$.extend({},s…</script>
+JSHandle@<script type="text/javascript">function isHitSampling(e){return bds&&bds.comm&&b…</script>
+JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>
+JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>
+JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>
+JSHandle@<script>↵    if(bds.comm.supportis){↵        window.__res…</script>
+JSHandle@<script type="text/javascript">(function(){var index_head_css=$("#style_super_he…</script>
+JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>
+JSHandle@<link type="text/css" rel="stylesheet" inlinecontent="…/>
+JSHandle@<script>F._setMod("superman");F._fileMap({"/js/sbase-6563…</script>
+JSHandle@<script>↵$(window).on("load", function() {↵    var e = $(…</script>
+JSHandle@<script src="https://pss.bdstatic.com/static/superman/js…></script>
+JSHandle@<script src="https://pss.bdstatic.com/static/superman/js…></script>
+JSHandle@<script>↵        if(navigator.cookieEnabled){↵           …</script>
+JSHandle@<script src="https://pss.bdstatic.com/static/superman/js…></script>
+JSHandle@<script defer="" src="//hectorstatic.baidu.com/cd37ed75a…></script>
+JSHandle@<script defer="" src="https://hector.baidu.com/a.js"></script>
+JSHandle@<script defer="" src="//hectorstatic.baidu.com/96c9c0665…></script>
+JSHandle@<div id="aging-tools-pc">…</div>
+### js
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵        (function(){↵        var hashMatch=docum…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script data-compress="strip">↵        function h(obj){↵            obj.style.b…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵        _manCard = {↵            asynJs : [],↵  …</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script id="topmenuloc-data" data-for="result-data" type…>↵    {"aiIcon":"data:image\/png;base64,iVBORw0KGg…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script data-for="result-data" type="application/json" i…>↵    {"isBdWordLinkRecallFromGuide":"","bdWordLin…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script data-for="result-data" type="application/json" i…>↵    ""</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript">"use strict";function _classCallCheck(instance,Co…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵this.globalThis || (this.globalThis = this);↵</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="tslib" src="https://ps…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="plugins/bzPopper" src=…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="plugins/swfobject" src…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="soutu/js/tu" src="http…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="@baidu/search-sug" src…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/lo…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/pl…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/vi…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/co…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/ai…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/to…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/ag…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/in…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="@baidu/video-meeting" …></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="superman/components/gu…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="ai-search-box-entry" s…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script async="" data-require-id="@baidu/aging-tools-pc"…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵    if (navigator.userAgent.indexOf('Edge') > -1…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵if(window.bds&&bds.util&&bds.util.setContainerWi…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script id="promote_login_box" type="application/json">↵    []↵</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script> ↵    ↵    ↵↵var bds = {↵    se: {},↵    su: {↵  …</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script data-for="esl-config">(function(){var amd={keys:{},addPaths:function(op…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript">bds.util.domain=function(){var list=$.extend({},s…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript">function isHitSampling(e){return bds&&bds.comm&&b…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵    if(bds.comm.supportis){↵        window.__res…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript">(function(){var index_head_css=$("#style_super_he…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script type="text/javascript" src="https://pss.bdstatic…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>F._setMod("superman");F._fileMap({"/js/sbase-6563…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵$(window).on("load", function() {↵    var e = $(…</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script src="https://pss.bdstatic.com/static/superman/js…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script src="https://pss.bdstatic.com/static/superman/js…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵        if(navigator.cookieEnabled){↵           …</script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script src="https://pss.bdstatic.com/static/superman/js…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script defer="" src="//hectorstatic.baidu.com/cd37ed75a…></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script defer="" src="https://hector.baidu.com/a.js"></script>>>
+<bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script defer="" src="//hectorstatic.baidu.com/96c9c0665…></script>>>
