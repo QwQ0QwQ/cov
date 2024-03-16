@@ -1,4 +1,4 @@
-### html
+### html###
 JSHandle@<html>…</html>
 JSHandle@<head>…</head>
 JSHandle@<meta http-equiv="Content-Type" content="text/html;cha…/>
@@ -38,8 +38,8 @@ JSHandle@<script async="" data-require-id="plugins/bzPopper" src=…></script>
 JSHandle@<script async="" data-require-id="plugins/swfobject" src…></script>
 JSHandle@<script async="" data-require-id="soutu/js/tu" src="http…></script>
 JSHandle@<script async="" data-require-id="@baidu/search-sug" src…></script>
-JSHandle@<link type="text/css" rel="stylesheet" data-for="resul…/>
 JSHandle@<style type="text/css" id="guarantee-popper-style">#guaranteePopper{text-align:left}#guaranteePopper…</style>
+JSHandle@<link type="text/css" rel="stylesheet" data-for="resul…/>
 JSHandle@<script async="" data-require-id="superman/components/lo…></script>
 JSHandle@<script async="" data-require-id="superman/components/pl…></script>
 JSHandle@<script async="" data-require-id="superman/components/vi…></script>
@@ -207,8 +207,8 @@ JSHandle@<a name="ime_cl" href="javascript:;">↵                               
 JSHandle@<input value="" name="rn" type="hidden"/>
 JSHandle@<input value="256" type="hidden" name="fenlei"/>
 JSHandle@<input value="" name="oq" type="hidden"/>
-JSHandle@<input type="hidden" name="rsv_pq" value="0x8c03ad82002…/>
-JSHandle@<input name="rsv_t" type="hidden" value="c0384RaGw+ZEgS…/>
+JSHandle@<input type="hidden" name="rsv_pq" value="0x8ddea4c5018…/>
+JSHandle@<input name="rsv_t" type="hidden" value="fa2dH1PNx6yofn…/>
 JSHandle@<input value="en" type="hidden" name="rqlang"/>
 JSHandle@<input value="1" type="hidden" name="rsv_enter"/>
 JSHandle@<input value="ib" type="hidden" name="rsv_dl"/>
@@ -229,44 +229,44 @@ JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
 JSHandle@<div class="title-content-noindex"></div>
 JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
 JSHandle@<span class="title-content-index c-index-single c-inde…>0</span>
-JSHandle@<span class="title-content-title">习近平这样谈“增进民生福祉”</span>
+JSHandle@<span class="title-content-title">习近平同安哥拉总统洛伦索会谈</span>
 JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
 JSHandle@<li data-index="3" class="hotsearch-item even">…</li>
 JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
 JSHandle@<div class="title-content-noindex"></div>
 JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
 JSHandle@<span class="title-content-index c-index-single c-inde…>3</span>
-JSHandle@<span class="title-content-title">用丰富“花活”留住更多游客</span>
+JSHandle@<span class="title-content-title">点亮人类文明美好图景</span>
 JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
 JSHandle@<li data-index="1" class="hotsearch-item odd">…</li>
-JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<a target="_blank" class="title-content tag-width c…>…</a>
 JSHandle@<div class="title-content-noindex"></div>
 JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
 JSHandle@<span class="title-content-index c-index-single c-inde…>1</span>
-JSHandle@<span class="title-content-title">婚礼后男方拒领证要回5万多彩礼</span>
-JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<span class="title-content-title">听花酒315晚会前两个小时还在自夸</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…>热</span>
 JSHandle@<li data-index="4" class="hotsearch-item even">…</li>
 JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
 JSHandle@<div class="title-content-noindex"></div>
 JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
 JSHandle@<span class="title-content-index c-index-single c-inde…>4</span>
-JSHandle@<span class="title-content-title">清华大学教授称大学越来越像工厂</span>
+JSHandle@<span class="title-content-title">天水麻辣烫老板：高兴！高兴滴很！</span>
 JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
 JSHandle@<li data-index="2" class="hotsearch-item odd">…</li>
-JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
-JSHandle@<div class="title-content-noindex"></div>
-JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
-JSHandle@<span class="title-content-index c-index-single c-inde…>2</span>
-JSHandle@<span class="title-content-title">免签朋友圈今起再添6国</span>
-JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
-JSHandle@<li data-index="5" class="hotsearch-item even">…</li>
 JSHandle@<a target="_blank" class="title-content tag-width c…>…</a>
 JSHandle@<div class="title-content-noindex"></div>
 JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
-JSHandle@<span class="title-content-index c-index-single c-inde…>5</span>
-JSHandle@<span class="title-content-title">总理考察自动驾驶</span>
+JSHandle@<span class="title-content-index c-index-single c-inde…>2</span>
+JSHandle@<span class="title-content-title">俄总统大选 选票上除了普京还有谁？</span>
 JSHandle@<span class="title-content-mark ie-vertical c-text c-g…>热</span>
-JSHandle@<textarea id="hotsearch_data">{"hotsearch":[{"card_title": "习近平这样谈“增进民生福祉”","li…</textarea>
+JSHandle@<li data-index="5" class="hotsearch-item even">…</li>
+JSHandle@<a target="_blank" class="title-content  c-link c-f…>…</a>
+JSHandle@<div class="title-content-noindex"></div>
+JSHandle@<i class="c-icon title-content-top-icon c-color-red…></i>
+JSHandle@<span class="title-content-index c-index-single c-inde…>5</span>
+JSHandle@<span class="title-content-title">代理店员：听花酒不是谁都能打压的</span>
+JSHandle@<span class="title-content-mark ie-vertical c-text c-g…></span>
+JSHandle@<textarea id="hotsearch_data">{"hotsearch":[{"card_title": "习近平同安哥拉总统洛伦索会谈","li…</textarea>
 JSHandle@<div id="s_wrap" class="s-isindex-wrap">…</div>
 JSHandle@<div id="s_main" class="main clearfix "></div>
 JSHandle@<div id="bottom_layer" class="s-bottom-layer s-isinde…>…</div>
@@ -398,7 +398,7 @@ JSHandle@<script defer="" src="//hectorstatic.baidu.com/cd37ed75a…></script>
 JSHandle@<script defer="" src="https://hector.baidu.com/a.js"></script>
 JSHandle@<script defer="" src="//hectorstatic.baidu.com/96c9c0665…></script>
 JSHandle@<div id="aging-tools-pc">…</div>
-### js
+### js###
 <bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵        (function(){↵        var hashMatch=docum…</script>>>
 <bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script data-compress="strip">↵        function h(obj){↵            obj.style.b…</script>>>
 <bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script>↵        _manCard = {↵            asynJs : [],↵  …</script>>>
@@ -448,3 +448,7 @@ JSHandle@<div id="aging-tools-pc">…</div>
 <bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script defer="" src="//hectorstatic.baidu.com/cd37ed75a…></script>>>
 <bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script defer="" src="https://hector.baidu.com/a.js"></script>>>
 <bound method ElementHandle.inner_text of <JSHandle preview=JSHandle@<script defer="" src="//hectorstatic.baidu.com/96c9c0665…></script>>>
+
+### 标签统计 ###
+None: 399
+None: 399
