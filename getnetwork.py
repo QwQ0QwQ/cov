@@ -1,48 +1,28 @@
-from seleniumwire import webdriver
-from selenium.webdriver.chrome.service import Service
+import asyncio
+from playwright.async_api import async_playwright, Playwright
 
+async def run(playwright: Playwright):
+    chromium = playwright.chromium
+    browser = await chromium.launch()
+    page = await browser.new_page()
 
-# chromedriver 路径配置
-driver_path = Service(r'.\chromedriver\chromedriver.exe')
+    async def handle_request(request):
+        with open("requests.txt", "a") as f:
+            print(f">> {request.method} {request.url}", file=f)
 
+    async def handle_response(response):
+        with open(f"responses_{response.status}.txt", "a") as f:
+            print(f"<< {response.status} {response.url}", file=f)
 
-# ChromeOptions 配置相关
-options = webdriver.ChromeOptions()
-options.add_argument('--ignore-certificate-errors')
+    # 订阅请求和响应事件，并调用相应的处理函数
+    page.on("request", handle_request)
+    page.on("response", handle_response)
 
+    await page.goto("https://baidu.com")
+    await browser.close()
 
-driver = webdriver.Chrome(options=options, service=driver_path)
+async def main():
+    async with async_playwright() as playwright:
+        await run(playwright)
 
-base_url = "https://www.ximalaya.com/sound/148249100"
-
-driver.get(base_url)
-
-album_info = None
-pay_info = None
-
-for request in driver.requests:
-    if request.response:
-        # print("request.url", request.url)
-        if "/bdsp/album/pay" in request.url:
-            # print(request.response.body)
-            pay_info = gzip.decompress(request.response.body).decode('utf-8')
-            try:
-                pay_info = json.loads(pay_info)
-                logger.info("转json 成功，结果{}".format(pay_info))
-            except Exception as e:
-                logger.info("转json 失败，结果{}".format(pay_info))
-                logger.error("异常信息：", e)
-
-        if "/bdsp/album/info" in request.url:
-            # print(request.response.body)
-            album_info = gzip.decompress(request.response.body).decode('utf-8')
-            try:
-                album_info = json.loads(album_info)
-                logger.info("转json 成功，结果{}".format(album_info))
-            except Exception as e:
-                logger.info("转json 失败，结果{}".format(album_info))
-                logger.error("异常信息：", e)
-
-logger.info("seleniumwire_network，for 循环完了，结果：专辑信息：{}, 支付信息：{}".format(album_info, pay_info))
-
-driver.quit()
+asyncio.run(main())
