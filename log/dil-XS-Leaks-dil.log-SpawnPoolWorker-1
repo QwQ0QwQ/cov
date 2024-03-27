@@ -1,0 +1,30 @@
+SpawnPoolWorker-1: h2o init complete: loaded 0 mojos.
+node:internal/modules/cjs/loader:1051
+  throw err;
+  ^
+
+Error: Cannot find module 'psl'
+Require stack:
+- C:\Users\35093\Desktop\graduation_project\test\crawl\url_collector.js
+- C:\Users\35093\Desktop\graduation_project\test\crawl\dil.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1048:15)
+    at Module._load (node:internal/modules/cjs/loader:901:27)
+    at Module.require (node:internal/modules/cjs/loader:1115:19)
+    at require (node:internal/modules/helpers:130:18)
+    at Object.<anonymous> (C:\Users\35093\Desktop\graduation_project\test\crawl\url_collector.js:2:13)
+    at Module._compile (node:internal/modules/cjs/loader:1233:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1287:10)
+    at Module.load (node:internal/modules/cjs/loader:1091:32)
+    at Module._load (node:internal/modules/cjs/loader:938:12)
+    at Module.require (node:internal/modules/cjs/loader:1115:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\35093\\Desktop\\graduation_project\\test\\crawl\\url_collector.js',
+    'C:\\Users\\35093\\Desktop\\graduation_project\\test\\crawl\\dil.js'
+  ]
+}
+
+Node.js v20.5.1
+SpawnPoolWorker-1: www.baidu.com failed: collect URLs or collect responses
+SpawnPoolWorker-1: www.baidu.com: Unique URLs: 1
+SpawnPoolWorker-1: www.baidu.com: Unique URLs after basic pruning: 0
