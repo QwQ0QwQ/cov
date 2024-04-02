@@ -80,6 +80,21 @@ def faq():
                            )
 
 
+
+@app.route('/site_detection', methods=['GET'])
+def site_detection():
+    return render_template('app/site_detection.html',
+                           )
+
+@app.route('/blank', methods=['GET'])
+def blank():
+    return render_template('app/blank.html',)
+
+@app.route('/testing', methods=['GET'])
+def testing():
+    return render_template('app/testing.html',
+                           )
+
 @app.route('/api/elementgroup', methods=['POST'])
 def api_elementgroup():
     # get post json data

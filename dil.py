@@ -21,7 +21,7 @@ import psycopg2
 from multiprocessing.pool import ThreadPool, Pool
 from crawl.pruner import Pruner
 from subprocess import CalledProcessError, TimeoutExpired
-
+import wmi
 
 
 
@@ -172,6 +172,8 @@ def run_cmd(cmd_list, timeout=3600, stdout=sys.stdout, stderr=sys.stderr):
     cmd = []
     [cmd.append(val) for val in cmd_list]
     proc = subprocess.Popen(cmd, stdout=stdout, stderr=stderr)
+    print(cmd_list)
+    print(cmd)
     try:
         proc.communicate(timeout=timeout)
         if proc.returncode != 0:
@@ -286,6 +288,7 @@ def run_dil(param):
             except (CalledProcessError, OSError) as e:
                 pruner.update("UPDATE site SET error_py = %s WHERE site = %s", (f"col-{str(e)}", site,))
                 print(f"{site} failed: collect URLs or collect responses")
+                print(e)
             except TimeoutExpired:
                 pruner.update("UPDATE site SET timeout_crawl = TRUE WHERE site = %s", (site,))
                 print(f"{site} timeout: collect URLs or collect responses")
@@ -311,6 +314,7 @@ def run_dil(param):
                 return
             print(reprlib.repr(urls))
             if len(urls) == 0:
+                print("error:urls is null")
                 return
 
             """
@@ -409,8 +413,9 @@ def main(args):
         elif args.mode == "test":
             setup_database()
             with ThreadPool(args.pool) as tp:
-                # r = list(tqdm(tp.imap(run_site, enumerate(sites)), position=0, leave=True, desc="Run"))
-                r = list(tqdm(tp.imap(partial(run_site, args=args), enumerate(sites)), position=0, leave=True, desc="Run"))
+                setup_database()
+                with ThreadPool(args.pool) as tp:
+                    r = list(tqdm(tp.imap(run_site, enumerate(sites)), position=0, leave=True, desc="Run"))
         elif args.mode.startswith("dil"):
             setup_database()
             temp_h2o_root = tempfile.mkdtemp(prefix='h2o_root_')

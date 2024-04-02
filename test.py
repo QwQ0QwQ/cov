@@ -1,73 +1,52 @@
-# coding=utf-8
+import asyncio
+import io
+import time
+from log import log
+import logging
+import requests
 import os
-from bs4 import BeautifulSoup
-import sys
 
-#定义一个list来存放文件路径
-paths=[]
+from playwright.async_api import async_playwright
 
-#获取所有的文件路径
-def get_paths():
-    for fpathe,dirs,fs in os.walk('html'):
-        for f in fs:
-            #print os.path.join(fpathe,f)
-            #将拼接好的path存放到list中
-            filepath=os.path.join(fpathe,f)
-            #只放入.html后缀文件路径
-            if(os.path.splitext(f)[1]==".html"):
-                paths.append(filepath)
 
-#读取html文件修改后并写入相应的文件中去
-def reset_file(path):
-    #判断文件是否存在
-    if not os.path.isfile(path):
-        raise TypeError(path + " does not exist")
+# logging is a bit of magic
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+log_stream = io.StringIO()
+logger.addHandler(logging.StreamHandler(log_stream))
 
-    #读取文件,bs4自动将输入文档转换为Unicode编码，
-    #输出文档转换为utf-8编码,bs4也可以直接读取html
-    #字符串，例如BeautifulSoup('<div>content</div>')
-    soup=BeautifulSoup(open(path))
+async def makeGraph():
+    async with async_playwright() as playwright:
 
-    #select是bs4提供的方法，和jquery的$选择器一样
-    #方便。可以标签(eg:div,title,p...)来查找,也
-    #也可以通过css的 class .和id #来查找，基本上和我们
-    #使用$一样。
 
-    #选取id="nav"节点下的所有li元素里面的a标签，返回值是一个list集合
-    nav_a=soup.select("#nav li a")
+        browser = await playwright.chromium.launch(args=["--max-old-space-size=10240000"])
 
-    #修改a的href属性
-    if(len(nav_a)>1):
-        nav_a[0]["href"]="/m/"
-        nav_a[1]["href"]="/m/about_mobile/m_about.html"
+        # 打开一个页面
+        page = await browser.new_page(ignore_https_errors=True)
+        # 详细输出
 
-    #选取class="footer"里的所有a标签
-    footer_a=soup.select(".footer a")
-    if(len(footer_a)>0):
-        footer_a[1]["href"]="/m/about_mobile/m_sjdt.html"
 
-    content_p=soup.select(".content p")
-    #修改<p>我是string</p>里面的文本内容
-    if(len(content_p)>0):
-        content_p[0].string="修改p标签里面的测试内容"
+        # dont trust this lets be save
+        await asyncio.sleep(1)
+        result = await page.evaluate(open('./src/testing.js', 'r').read())
+        await page.close()
+        return result
+# 保存结果的文件名
+output_file = "output.txt"
 
-    #修改系统的默认编码
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
+# 打开输出文件
+async def main():
+    # with open(output_file, "w") as f:
+    # 遍历文件夹中的所有文件
+    #     for filename in os.listdir(dir_path):
+    #         # 拼接文件路径
+    #         url="http://127.0.0.1:8001/"+filename
+    #         G=await makeGraph(url,"chrome",logger,verbose=True,headless=False,)
+    #         print(G)
+    url="http://baidu.com"
+    result = await makeGraph()
+    print(result)
 
-    #打开相应的文件写入模式，打开文件不要放入try里面，否则会
-    #出现异常
-    f=open(path,"w")
-    try:
-        #写入文件
-        f.write(soup.prettify())
-    finally:
-        #关闭文件
-        file.close()
 
-#定义main函数程序的入口
-if __name__=="__main__":
-    get_paths()
-    #遍历所有文件路径
-    for p in paths:
-        reset_file(p)
+
+asyncio.run(main())

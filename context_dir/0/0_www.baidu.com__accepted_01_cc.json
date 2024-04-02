@@ -1,0 +1,127 @@
+{
+  "cookies": [
+    {
+      "sameSite": "Lax",
+      "name": "BIDUPSID",
+      "value": "07A8C1294DE75135DEA0818254277499",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 3859009745.911486,
+      "httpOnly": false,
+      "secure": false
+    },
+    {
+      "sameSite": "Lax",
+      "name": "PSTM",
+      "value": "1711526099",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 3859009745.911494,
+      "httpOnly": false,
+      "secure": false
+    },
+    {
+      "sameSite": "Lax",
+      "name": "BAIDUID",
+      "value": "07A8C1294DE751351898DB001EB30495:FG=1",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 1743062098.911502,
+      "httpOnly": false,
+      "secure": false
+    },
+    {
+      "sameSite": "Lax",
+      "name": "BD_UPN",
+      "value": "12314753",
+      "domain": "www.baidu.com",
+      "path": "/",
+      "expires": 1712390099,
+      "httpOnly": false,
+      "secure": false
+    },
+    {
+      "sameSite": "Lax",
+      "name": "BA_HECTOR",
+      "value": "0c0k05058g058k80ak8l2hahp09n7i1j07k6j1t",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 1711612499,
+      "httpOnly": false,
+      "secure": false
+    },
+    {
+      "sameSite": "None",
+      "name": "BAIDUID_BFESS",
+      "value": "07A8C1294DE751351898DB001EB30495:FG=1",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 1743062099.355734,
+      "httpOnly": false,
+      "secure": true
+    },
+    {
+      "sameSite": "None",
+      "name": "ZFY",
+      "value": "gDP2xvXDq4rAkRmO:AuNgeATy4vuerW:BSr2:BqM6Uqeo8:C",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 1743062099.355697,
+      "httpOnly": false,
+      "secure": true
+    },
+    {
+      "sameSite": "Lax",
+      "name": "BDORZ",
+      "value": "B490B5EBF6F3CD402E515D22BCDA1598",
+      "domain": ".baidu.com",
+      "path": "/",
+      "expires": 1711612499.464009,
+      "httpOnly": false,
+      "secure": false
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.baidu.com",
+      "localStorage": [
+        {
+          "name": "ai-bubble-options",
+          "value": "{\"isAiEntry\":\"1\",\"aiText\":\"AI伙伴即将升级为文心一言\",\"isBubble\":\"1\",\"fixedBubble\":\"0\",\"exposeNum\":\"5000\",\"isClickedClose\":\"1\",\"exposeTime\":\"7000\",\"isPassText\":\"0\",\"isBubbleRecallFromGuide\":\"0\"}"
+        },
+        {
+          "name": "pcSpyLocalCache",
+          "value": "{\"group\":\"perf\",\"from\":\"index\",\"ts\":1711526099250,\"info\":{\"req\":31,\"resp\":38,\"tcp\":33,\"dns\":0,\"redirect\":0,\"domLoading\":69,\"domReady\":401,\"domTime\":332,\"load\":-1711526098846,\"unload\":0,\"usedJSHeapSize\":7826.0693359375,\"usedJSHeapRate\":65.5559126702654,\"pageSizeGzip\":99.9052734375,\"pageSize\":397.189453125},\"ext\":{\"perfT\":{\"ns\":1711526098846,\"fs\":1711526098846,\"cs\":1711526098847,\"rs\":1711526098880,\"us\":0,\"ss\":1711526098847,\"ds\":1711526099247,\"dc\":0,\"ls\":0}},\"type\":\"pf_comm\",\"url\":\"https://www.baidu.com/\",\"lid\":\"0xb607b3c4001149ef\"}"
+        },
+        {
+          "name": "safeIconHis",
+          "value": ""
+        },
+        {
+          "name": "CVObj",
+          "value": ""
+        },
+        {
+          "name": "wwwPassLogout",
+          "value": "0"
+        },
+        {
+          "name": "CVStringTimestamp",
+          "value": "1711612499183"
+        },
+        {
+          "name": "BIDUPSID",
+          "value": "07A8C1294DE75135DEA0818254277499"
+        },
+        {
+          "name": "show-ai-bubble-times",
+          "value": "1"
+        },
+        {
+          "name": "ba_hector_fp",
+          "value": "1cc891c8e942767eec59de74dfee0a0c1711526099478"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/static/css/prism.css"  />
+    <link rel="stylesheet" href="/static/css/solid.min.css">
+    <link rel="stylesheet" href="/static/css/brands.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <small>XS-Leak Site Test </small>
+        </nav>
+    </div>
+    <div id="testModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5 class="my-3">Run <code class="text-monospace" id="testModalFunc">leak()</code></h5>
+                    <p>Test this XS-Leak against your website or endpoint.</p>
+                    <div class="input-group-prepend">
+                        <button id="runAllTests" class="btn btn-primary" type="button">
+                            <span class="fas fa-play"></span>
+                        </button>
+                        <input type="url" pattern="https?://.+" id="runCustomTestUrl" class="form-control" placeholder="Url to test">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="testing">
+        <div class="row my-5 justify-content-xl-center">
+            <div class="col-xl-6 bg-light p-3 mx-5 rounded text-justify">
+                <button class="btn btn-primary my-1" id="runAllTestsBtn">
+                    <span class="fas fa-play"></span> Run All Tests
+                </button>
+                <button class="btn btn-primary my-1" id="compareResultsBtn" disabled=true>
+                    <span class="fas fa-exchange-alt"></span> Compare Your Results
+                </button>
+            </div>
+        </div>
+
+        <div class="row mb-1 mx-2">
+            <div class="col-md-8">
+                <span class="badge badge-danger"></span>
+                <span class="badge badge-success"></span>
+                <span class="badge badge-warning"></span>
+                <span class="badge badge-secondary"></span>
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-md-12">
+                <small>UA: <code id="appVersionField"></code></small>
+            </div>
+        </div>
+        <div class="row mx-2">
+            <div class="col-md-12">
+<!--                <table class="table table-sm table-hover" height="1000px">-->
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">XS-Leak</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leakTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <button class="btn btn-primary btn-sm" id="exportResultsBtn">
+                    <span class="fa fa-cloud-download-alt"></span> Export Results
+                </button>
+                <button class="btn btn-primary btn-sm" id="clearResultsBtn">
+                    <span class="fa fa-minus-circle"></span> Clear Results
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/static/js/runalltest.js"></script>
+</body>
+</html>

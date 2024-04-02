@@ -1,0 +1,29 @@
+<!-- templates/index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--头部-->
+    <script>
+        const start = Date.now() //这里开始计时
+    </script>
+    <script>
+                //abc()会将加载时间计算好之后，连同测试字符一同发给result路由。
+        abc = () => {
+            const end = Date.now()
+            var req = new XMLHttpRequest();
+            req.open('get',`http://127.0.0.1:5001/result?word={{word}}&ms=${end - start}`,true);
+            req.withCredentials = true;
+            req.send();
+        }
+    </script>
+<!--底部-->
+</head>
+<body>
+        <!--因为跨域的原因，所以选择用iframe加载搜索接口，加载完成后执行onload事件，即abc()。-->
+    <iframe src="https://search.bilibili.com/all?keyword={{word}}" onload="abc()"></iframe>
+</body>
+</html>

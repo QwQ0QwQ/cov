@@ -1,0 +1,37 @@
+main: DB already exists, continue
+Traceback (most recent call last):
+  File "C:\Users\35093\Desktop\graduation_project\test\dil.py", line 417, in main
+    r = list(tqdm(tp.imap(partial(run_site, args=args), enumerate(sites)), position=0, leave=True, desc="Run"))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\code\python\python-3.11\Lib\site-packages\tqdm\std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "D:\code\python\python-3.11\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+  File "D:\code\python\python-3.11\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+TypeError: run_site() got an unexpected keyword argument 'args'
+main: DB already exists, continue
+main: Namespace(mode='test', t_date=datetime.date(2022, 4, 24), sites_file='', site='www.baidu.com', t_start=0, t_end=100, pool=10, button_timeout=10000, load_timeout=30000, limit_conv=25, limit_crawl=500, tree_glob='mojo/*.mojo', coll_timeout=3600, dyn_timeout=10800, run_node=True, PGHOST='localhost', PGUSER='postgres', PGDATABASE='XS-Leaks-dil', PGPASSWORD='mnpggk19', PGPORT='5432')
+Traceback (most recent call last):
+  File "C:\Users\35093\Desktop\graduation_project\test\dil.py", line 418, in main
+    r = list(tqdm(tp.imap(partial(run_site, args=args), enumerate(sites)), position=0, leave=True, desc="Run"))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\code\python\python-3.11\Lib\site-packages\tqdm\std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "D:\code\python\python-3.11\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+  File "D:\code\python\python-3.11\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+TypeError: run_site() got an unexpected keyword argument 'args'
+main: DB already exists, continue
+main: ['node', 'crawl/acceptor_test.js', 'www.baidu.com', '0', '10000', '30000']
+main: ['node', 'crawl/acceptor_test.js', 'www.baidu.com', '0', '10000', '30000']
+main: www.baidu.com failed
+main: Namespace(mode='test', t_date=datetime.date(2022, 4, 24), sites_file='', site='www.baidu.com', t_start=0, t_end=100, pool=10, button_timeout=10000, load_timeout=30000, limit_conv=25, limit_crawl=500, tree_glob='mojo/*.mojo', coll_timeout=3600, dyn_timeout=10800, run_node=True, PGHOST='localhost', PGUSER='postgres', PGDATABASE='XS-Leaks-dil', PGPASSWORD='mnpggk19', PGPORT='5432')
+main: DB already exists, continue
+main: DB already exists, continue
+main: ['node', 'crawl/acceptor_test.js', 'www.baidu.com', '0', '10000', '30000']
+main: ['node', 'crawl/acceptor_test.js', 'www.baidu.com', '0', '10000', '30000']
+main: www.baidu.com failed
