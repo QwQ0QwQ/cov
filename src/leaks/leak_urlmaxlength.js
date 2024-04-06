@@ -65,7 +65,7 @@ const getOrigin = (url) => {
 const leak = async (url) => {
     return new Promise(async(r) => {
         // test server at / and set limit
-        let max = await calibrate(getOrigin(url) + '/testcases/tests/blank.php')
+        let max = await calibrate(getOrigin(url))
         // check url with new limit
         let x = 3
         // url will be at least x longer to trigger error

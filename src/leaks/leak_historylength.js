@@ -24,7 +24,7 @@ const sleep = (ms) => {
 
 
 const switchToBlank = async (w) => {
-    w.location = 'blank.html';
+    w.location = 'blank';
     while(1){
         try{
             if(w.history.length){

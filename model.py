@@ -74,3 +74,8 @@ class filetypes(Document):
     name=StringField(required=True)
     contenttype=StringField(required=True)
     filetemplate=StringField(required=True)
+
+
+class results(Document):
+    url=StringField(required=True)
+    results=ListField(required=True)

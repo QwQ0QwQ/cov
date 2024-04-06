@@ -3,19 +3,32 @@ import { TEST_URL } from "./../config.js";
 const leak = async (url) => {
     return new Promise(r => {
         let iframe = document.createElement('iframe')
+
         window.onmessage = (e) => {
             iframe.remove()
-            if(e.data === 'https://example.com'){
-                // detected redirect to example.com
-                return r(1)
-            }else if(url.includes(e.data)){
-                // catch correct implementation
-                return r(0)
-            }
-            else{
-                return r(e.data)
-            }
+            const entries = window.performance.getEntriesByType('navigation');
+
+            for (const entry of entries) {
+                if (entry.redirectCount > 0) {
+                // 页面发生了重定向
+                    return r(1)
+                 }
+}
+            return r(0)
+            // if(e.data === 'https://example.com'){
+            //     // detected redirect to example.com
+            //     return r(1)
+            // }else if(url.includes(e.data)){
+            //     // catch correct implementation
+            //     return r(0)
+            // }
+            // else{
+            //     return r(e.data)
+            // }
         }
+         document.addEventListener('securitypolicyviolation', () => {
+        return r(1)
+    });
         // timeout if no message
         setTimeout(() => {
             iframe.remove()

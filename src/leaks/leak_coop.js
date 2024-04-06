@@ -21,10 +21,10 @@ const leak = async (url) => {
 
 
 const switchToBlank = async (w) => {
-    w.location = 'blank.html'
+    w.location = 'blank'
     while(1){
         try{
-            if(w.location.pathname.includes('blank.html')){
+            if(w.location.pathname.includes('blank')){
                 // we need to wait just a bit more here
                 await sleep(100)
                 return 1

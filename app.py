@@ -1,10 +1,11 @@
-from flask import Flask, request, render_template, make_response, jsonify, send_from_directory
+from flask import Flask, request, render_template, make_response, jsonify, send_from_directory,redirect, url_for
 from model import elementgroup
 from model import browsers
 from model import differences
 from model import inclusionmethods
 from model import filetypes
 from model import Testcase
+from model import results
 import sys
 import os
 import json
@@ -17,6 +18,7 @@ BIND_ADDR = os.getenv('BIND_ADDR', '0.0.0.0')
 app = Flask(__name__)
 # from werkzeug.middleware.profiler import ProfilerMiddleware
 # app.wsgi_app = ProfilerMiddleware(app.wsgi_app, profile_dir='.')
+app.config['JSON_AS_ASCII'] = False
 app.debug = False
 
 
@@ -206,6 +208,15 @@ def api_results():
         'total': total,
     }
 
+
+@app.route('/api/saveresults', methods=['POST'])
+def api_saveresults():
+    data = request.get_json()
+    print(data)
+    results(url=data.get('url'),results=data.get('results')).save()
+    return f"result: {data.get('url')} add success!!"
+
+
 @app.route('/admin', methods=['GET', 'POST'])
 @demo_mode_check
 def admin():
@@ -298,6 +309,23 @@ def favicon():
 @app.route('/paper.pdf')
 def paper():
     return send_from_directory('static', 'autoleak.pdf')
+
+
+@app.route('/maxredirect')
+def maxredirect():
+    if request.args.get('n') and request.args.get('url'):
+        n = int(request.args.get('n'))
+        url = request.args.get('url')
+
+        if url.startswith("http"):
+            if n == 0:
+                return redirect(url)
+            else:
+                return redirect(url_for('.index', n=n - 1, url=url), code=302)  # Use code=302 for temporary redirect
+        else:
+            return "must have http", 400  # Return a 400 error for invalid URL
+
+    return "Ok"
 
 
 def main():

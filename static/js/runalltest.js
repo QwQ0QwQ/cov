@@ -1,3 +1,185 @@
+const e = "https://127.0.0.1:7000/"
+const n = e=>new Promise((t=>setTimeout(t, e))),
+    s = e=>new Promise((t=>setTimeout(t, e)))
+  , a = e=>new Promise((t=>setTimeout(t, e)));
+const o = async e=>new Promise(((t,n)=>{
+    let s = document.createElement("script");
+    s.src = e,
+    s.onload = e=>(e.target.remove(),
+    t(!0)),
+    s.onerror = e=>(e.target.remove(),
+    t(!1)),
+    document.head.appendChild(s)
+}
+))
+  , i = (e,t)=>{
+    let n = e.includes("?") ? "&foo=" : "?foo="
+      , s = t - e.length - n.length - "END".length
+      , a = e + n + "a".repeat(s) + "END";
+    return a.length !== t && console.debug(`[!] ${a.length} !== ${t}`),
+    a
+}
+;
+const r = e=>new Promise((t=>setTimeout(t, e)))
+  , l = e=>new Promise((t=>setTimeout(t, e)))
+  , c = async e=>{
+    for (e.location = "blank"; ; ) {
+        try {
+            if (e.history.length)
+                return await l(300),
+                1
+        } catch (e) {}
+        await l(50)
+    }
+}
+;
+let d = [];
+const u = e=>new Promise((t=>setTimeout(t, e)))
+  , m = (e,t)=>{
+    for (let n = 0; n < t; n++) {
+        let t = new WebSocket(e);
+        t.onerror = e=>{
+            d = d.filter((e=>e !== t))
+        }
+        ,
+        d.push(t)
+    }
+}
+;
+let p = [];
+const g = e=>new Promise((t=>setTimeout(t, e)))
+  , h = async(e,t)=>{
+    for (let n = 0; n < t; n++) {
+        let t = new WebSocket(e);
+        p.push(t)
+    }
+}
+  , f = (e=p)=>{
+    for (let t of e.reverse())
+        t.close()
+}
+  , v = e=>p.filter((t=>t.readyState === e))
+  , w = ()=>{
+    let e = {
+        connecting: 0,
+        open: 0,
+        closing: 0,
+        closed: 0
+    };
+    for (let t of p) {
+        let n = t.readyState;
+        0 === n ? e.connecting++ : 1 === n ? e.open++ : 2 === n ? e.closing++ : 3 === n ? e.closed++ : console.warn(t, n, "WTF unknow s.readyState")
+    }
+    return e
+}
+  , y = ()=>new Promise((async e=>{
+    let t = -1;
+    for (; t !== v(1).length; )
+        t = v(1).length,
+        await g(1500);
+    return e(1)
+}
+))
+  , b = [{
+    supportedMethods: "basic-card"
+}, {
+    supportedMethods: "https://apple.com/apple-pay",
+    data: {
+        version: 3,
+        merchantIdentifier: "merchant.com.example",
+        countryCode: "US",
+        merchantCapabilities: ["supports3DS"],
+        supportedNetworks: ["visa"]
+    }
+}]
+  , _ = {
+    total: {
+        label: "Total",
+        amount: {
+            currency: "USD",
+            value: "1.00"
+        }
+    }
+}
+  , k = e=>new Promise((t=>setTimeout(t, e)))
+  , L = e=>new Promise((t=>setTimeout(t, e)));
+let T = `${e}filetemplates/image1.gif`;
+const A = e=>new Promise((t=>setTimeout(t, e)))
+  , E = async(e,t)=>{
+    if ("POST" === t && await fetch(e, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "reload",
+        credentials: "include"
+    }).catch((e=>console.error(e))),
+    "CORS" === t)
+        try {
+            await fetch(e, {
+                method: "GET",
+                mode: "cors",
+                cache: "reload",
+                credentials: "include"
+            })
+        } catch (e) {}
+}
+  , P = async e=>new Promise((async t=>{
+    let n = await self.caches.open("cache")
+      , s = await fetch(e, {
+        method: "GET",
+        mode: "no-cors",
+        cache: "force-cache",
+        credentials: "include"
+    })
+      , a = performance.now();
+    n.put(new Request(e), s.clone()).then((()=>t(performance.now() - a)))
+}
+));
+let x = `${e}filetemplates/image1.gif`;
+const C = e=>new Promise((t=>setTimeout(t, e)))
+  , S = async(e,t)=>{
+    if ("POST" === t && await fetch(e, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "reload",
+        credentials: "include"
+    }).catch((e=>console.error(e))),
+    "CORS" === t)
+        try {
+            await fetch(e, {
+                method: "GET",
+                mode: "cors",
+                cache: "reload",
+                credentials: "include"
+            })
+        } catch (e) {}
+}
+  , F = async e=>new Promise((async t=>{
+    let n = await self.caches.open("cache")
+      , s = await fetch(e, {
+        method: "GET",
+        mode: "no-cors",
+        cache: "force-cache",
+        credentials: "include"
+    })
+      , a = performance.now();
+    n.put(new Request(e), s.clone()).then((()=>t(performance.now() - a)))
+}
+))
+  , W = e=>new Promise((t=>setTimeout(t, e)))
+  , $ = async e=>new Promise((t=>setTimeout(t, e)))
+  , N = e=>new Promise((t=>setTimeout(t, e)))
+  , D = e=>new Promise((t=>setTimeout(t, e)))
+  , R = async e=>{
+    for (e.location = "blank"; ; ) {
+        try {
+            if (e.location.pathname.includes("blank"))
+                return await M(100),
+                1
+        } catch (e) {}
+        await M(10)
+    }
+}
+  , M = e=>new Promise((t=>setTimeout(t, e)));
 let H = [
     {
     test_name: "Performance API Error Leak",
@@ -87,30 +269,57 @@ let H = [
         ))
     }
 }, {
+
     test_name: "Style Reload Error Leak",
     test_category: "Status Code",
     test_description: "Detect errors with style reload bug.",
     test_file: "/src/leaks/leak_stylereload_error.js",
-    test_function: async e=>new Promise((t=>{
-        let s = document.createElement("iframe");
-        window.onmessage = async a=>{
-            await n(1e3);
-            let o = s.contentWindow.performance.getEntriesByType("resource");
-            console.debug(o),
-            s.remove();
-            let i = o.filter((t=>t.name === e)).length;
-            return 2 === i ? t(1) : 1 === i ? t(0) : 0 === i ? t(1) : (console.debug(`requests: ${i}`),
-            t(`requests: ${i}`))
+    test_function: async (e) => {
+  return new Promise((t) => {
+    let s = document.createElement("iframe");
+
+    // 处理跨域问题
+    s.srcdoc = `
+        <html>
+        <body>
+                <script onload="parent.postMessage('', '*')"\n                    src='https://xsinator.com/3sleep'><\/script>
+                <style>\n                    @import '${e}';\n                </style>\n                \n        </body>
+        </html>`;
+
+    // 等待 iframe 加载完成
+    s.onload = () => {
+      window.onmessage = async (a) => {
+        await n(1e3); // 设置延时计时器1000
+
+        // 捕获异常
+        try {
+          let o = s.contentWindow.performance.getEntriesByType("resource");
+          console.debug(o);
+        } catch (err) {
+          console.error(err);
+          t(0);
+          return;
         }
-        ,
-        setTimeout((()=>(s.remove(),
-        t(0))), 5e3),
-        s.srcdoc = `\n        <html>\n        <body>\n                <script onload="parent.postMessage('', '*')"\n                    src='https://xsinator.com/3sleep'><\/script>\n                <style>\n                    @import '${e}';\n                </style>\n                \n        </body>\n        </html>`,
-        document.body.appendChild(s)
-    }
-    )),
+
+        s.remove();
+        let i = o.filter((t) => t.name === e).length;
+
+        return 2 === i ? t(1) : 1 === i ? t(0) : 0 === i ? t(1) : (console.debug(`requests: ${i}`), t(`requests: ${i}`));
+      };
+    };
+
+    // 5秒超时
+    setTimeout(() => {
+      s.remove();
+      t(0);
+    }, 5e3);
+
+    document.body.appendChild(s);
+  });
+},
     test_timeout: 6e3
 }, {
+
     test_name: "Request Merging Error Leak",
     test_category: "Status Code",
     test_description: "Detect errors with request merging.",
@@ -148,38 +357,69 @@ let H = [
     test_category: "Redirects",
     test_description: "Detect cross-origin HTTP redirects by checking redirectStart time.",
     test_file: "/src/leaks/leak_performanceiframe_redirect.js",
-    test_function: async e=>{
-        let t = document.createElement("iframe");
-        return t.src = e,
-        new Promise((n=>{
-            t.onload = t.onerror = ()=>{
-                t.remove();
-                let s = performance.getEntriesByType("resource").filter((t=>t.name === e)).pop();
-                return console.debug(s),
-                0 === s.redirectStart ? n(0) : n(1)
-            }
-            ,
-            document.body.appendChild(t)
+    test_function: async e => {
+  let t = document.createElement("iframe");
+  return t.src = e,
+    new Promise((n) => {
+      t.onload = t.onerror = async () => {
+        t.remove();
+
+        // Check for available Entry before accessing properties:
+        const entries = performance.getEntriesByType("resource");
+        const matchingEntry = entries.find((t) => t.name === e);
+
+        try {
+          if (matchingEntry) {
+            // Access properties only if the Entry exists:
+            const redirectStatus = matchingEntry.redirectStart === 0 ? 0 : 1;
+            n(redirectStatus);
+          } else {
+            // Handle the case where there's no matching Entry:
+            console.warn("No matching resource entry found.");
+            n(null); // Or indicate an error with a different value
+          }
+        } catch (error) {
+          console.error("Error handling resource entry:", error);
+          n(null); // Or indicate an error with a different value
         }
-        ))
-    }
-}, {
+      };
+      document.body.appendChild(t);
+    });
+}},{
     test_name: "Duration Redirect Leak",
     test_category: "Redirects",
     test_description: "Detect cross-origin redirects by checking the duration.",
     test_file: "/src/leaks/leak_performancefetch_redirect.js",
-    test_function: async e=>new Promise((async t=>{
-        await fetch(e, {
-            mode: "no-cors",
-            credentials: "include"
-        }),
-        await a(300);
-        let n = performance.getEntriesByType("resource").filter((t=>t.name === e)).pop();
-        return console.debug("Duration: ", n.duration),
-        n.duration <= 0 ? t(1) : t(0)
+    test_function: async (e) => {
+  return new Promise(async (t) => {
+    try {
+      // Fetch the resource:
+      await fetch(e, {
+        mode: "no-cors", // Consider alternative approaches if CORS is needed
+        credentials: "include"
+      });
+
+      // Wait for a short duration for potential redirects:
+      await await a(300);
+
+      // Check for available Entry before accessing properties:
+      const entries = performance.getEntriesByType("resource");
+      const matchingEntry = entries.find((t) => t.name === e);
+
+      if (matchingEntry) {
+        console.debug("Duration: ", matchingEntry.duration);
+        t(matchingEntry.duration <= 0 ? 1 : 0); // Reverse logic for easier interpretation
+      } else {
+        console.warn("No matching resource entry found for:", e);
+        // Handle the case where there's no matching Entry (e.g., return a default value)
+        t(null); // Or another value indicating an error
+      }
+    } catch (error) {
+      console.error("Error fetching or processing resource:", error);
+      t(null); // Or another value indicating an error
     }
-    ))
-}, {
+  });
+}},{
     test_name: "Fetch Redirect Leak",
     test_category: "Redirects",
     test_description: "Detect HTTP redirects with Fetch API.",
@@ -191,36 +431,46 @@ let H = [
     }).then((e=>(console.debug(`res.type = ${e.type}`),
     "opaqueredirect" === e.type ? 1 : void 0))).catch((()=>0))
 }, {
+    //abc
     test_name: "URL Max Length Leak",
     test_category: "Redirects",
     test_description: "Detect server redirect by abusing URL max length.",
     test_file: "/src/leaks/leak_urlmaxlength.js",
-    test_function: async e=>new Promise((async t=>{
-        let n = await (async e=>{
-            let t = 0
-              , n = 1e4
-              , s = 0
-              , a = !1;
-            for (; t < n; )
-                s = Math.floor((t + n) / 2),
-                a = await o(i(e, s)),
-                !1 === a ? n = s - 1 : t = s + 1;
-            return a = await o(i(e, t)),
-            !1 === a && t--,
-            a = await o(i(e, t)),
-            !1 === a ? (console.debug("Error after last check !!!"),
-            0) : (console.debug(`DONE: length: ${t}, result: ${a}`),
-            t)
+    test_function: async (e) => {
+  return new Promise(async (t) => {
+    try {
+      // Get resource origin using a safer approach:
+      const url = new URL(e); // Consider using URL constructor for robust parsing
+      const origin = url.origin;
+
+      // Recursive binary search function (adjusted for non-negative count):
+      const binarySearch = async (target, low = 0, high = 10000) => {
+        if (low >= high) {
+          return false; // Not found
         }
-        )((e=>{
-            let t = document.createElement("a");
-            return t.href = e,
-            t.origin
+
+        const mid = Math.floor((low + high) / 2);
+        const result = await o(i(target, mid));
+
+        if (result === true) {
+          return await o(i(target, mid)) ? mid : binarySearch(target, mid + 1, high);
+        } else {
+          return binarySearch(target, low, mid - 1);
         }
-        )(e) + "/testcases/tests/blank.php");
-        return t(await o(i(e, n - 3)) ? 0 : 1)
+      };
+
+      // Check if the origin is valid using binary search:
+      const validOrigin = await binarySearch(origin);
+
+      // Resolve the promise based on the result:
+      t(validOrigin ? 0 : 1);
+
+    } catch (error) {
+      console.error("Error during origin check:", error);
+      t(null); // Or another value indicating an error
     }
-    )),
+  });
+},
     test_timeout: 1e4
 }, {
     test_name: "Max Redirect Leak",
@@ -229,7 +479,7 @@ let H = [
     test_file: "/src/leaks/leak_maxredirectlength.js",
     test_function: async e=>{
         let t = performance.getEntries().length;
-        return fetch(`https://xsinator.com/testcases/files/maxredirect.php?n=19&url=${encodeURI(e)}`, {
+        return fetch(`https://127.0.0.1:9876/maxredirect?n=19&url=${encodeURI(e)}`, {
             credentials: "include",
             mode: "no-cors"
         }).then((async e=>(await r(500),
@@ -262,8 +512,12 @@ let H = [
     test_file: "/src/leaks/leak_csp_blockeduri.js",
     test_function: async t=>new Promise((n=>{
         let s = document.createElement("iframe");
-        window.onmessage = e=>(s.remove(),
-        "https://example.com" === e.data ? n(1) : t.includes(e.data) ? n(0) : n(e.data)),
+        //添加事件监听器，如果存在csp 重定向返回1
+        document.addEventListener('securitypolicyviolation', () => {
+        return n(1)
+    })
+            //否则返回0
+        window.onmessage = e=>(s.remove(),n(0)),
         setTimeout((()=>(s.remove(),
         n(0))), 1500),
         s.srcdoc = `<html>\n        <head>\n            <meta http-equiv='Content-Security-Policy' content="default-src * 'unsafe-inline'; connect-src ${e}">\n        </head>\n        <body>\n            <script>\n                document.addEventListener('securitypolicyviolation', e => {parent.postMessage(e.blockedURI, '*')})\n                fetch('${t}', {mode:'no-cors', credentials: 'include'})\n            <\/script>\n        </body>\n        </html>`,
@@ -293,7 +547,7 @@ let H = [
     test_description: "Detect the number of websockets on a page by exausting the socket limit.",
     test_file: "/src/leaks/leak_websocket_ff.js",
     test_function: async(e,t=3e3,n=200)=>{
-        let s = "wss://xsinator.com/5sleep";
+        let s = "ws://localhost:8000/ff";
         m(s, n),
         await u(500);
         let a = d.length;
@@ -327,7 +581,7 @@ let H = [
     test_file: "/src/leaks/leak_websocket_gc.js",
     test_function: async(e,t=2e3,n=255)=>{
         let s = performance.now()
-          , a = "wss://xsinator.com/ws";
+          , a = "ws://localhost:8001/gc";
         console.log("[+] Exausting WS limit until we can not open any new WS.");
         let o = (e=>{
             let t = document.createElement("iframe");
@@ -374,24 +628,7 @@ let H = [
     ,
     test_timeout: 4e4,
     test_needsWindow: !0
-}, {
-    test_name: "Payment API Leak",
-    test_category: "API Usage",
-    test_description: "Detect if another tab is using the Payment API.",
-    test_file: "/src/leaks/leak_payment.js",
-    test_function: async e=>new Promise((async t=>{
-        if (!window.PaymentRequest)
-            return t("PaymentRequest not supported.");
-        window.WW.location = e,
-        await k(2e3);
-        let n = new PaymentRequest(b,_);
-        n.show().catch((e=>"Another PaymentRequest UI is already showing in a different tab or window." == e.message ? t(1) : t(0))),
-        n.abort()
-    }
-    )),
-    test_timeout: 5e3,
-    test_needsWindow: !0
-}, {
+},  {
     test_name: "Frame Count Leak",
     test_category: "Page Content",
     test_description: "Detect the number of iframes on a page.",
@@ -792,43 +1029,57 @@ let H = [
 }];
 
 runCustomTestUrl.placeholder = "https?://",
-runAllTests.onclick = async e=>{
-    console.log("click")
+runAllTests.onclick = async e=> {
+
     Se(),
-    Fe(),
-    be();
+        Fe(),
+        be();
     let t = runAllTests.innerHTML;
     let u = runCustomTestUrl.value
-          , n = "Invalid URL";
+        , n = "Invalid URL";
     Ee(u) && (runAllTests.disabled = !0,
         runAllTests.disabled = !1),
-    runAllTests.innerText = "Running ...",
-    window.WW = Te();
+        runAllTests.innerText = "Running ...",
+        window.WW = Te();
+    const results = [];
     for (let e of H)
         // console.log(e)
-        e.test_result =await ke(u, e),
-            console.log(e.test_result)
-        we(e);
+        e.test_result = await ke(u, e),
+            results.push(e.test_result);
+    // we(e);
     Se(),
-    runAllTests.innerHTML = t,
-    exportToServer("https://127.0.0.1:8000/"),
-    window.WW.close(),
-    localStorage.setItem("results", JSON.stringify(Pe("Your Browser", "", ""))),
-    compareResultsBtn.disabled = !1
+        runAllTests.innerHTML = t,
+        exportToServer("https://127.0.0.1:8000/"),
+        window.WW.close(),
+        localStorage.setItem("results", JSON.stringify(Pe("Your Browser", "", ""))),
+        compareResultsBtn.disabled = !1
+    let data = {
+        url: u,
+        results: results
+    }
+    fetch('/api/saveresults', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+.then(response => response.json())
+.then(data => console.log('Data sent successfully:', data))
+.catch(err => console.error(err));
+    console.log("all test is complete")
 }
 
-
 //浏览器全部测试
-const ve = async e=>{
-    let n, s, {test_name: a, test_url: o, test_function: i, test_row: r, test_timeout: l, test_needsWindow: c} = e;
-    // ye(r, "secondary");
-    let {url0: d, url1: u} = t(o);
+const ve = async (u,e)=>{
+    let n, s, {test_name: a, test_function: i, test_row: r, test_timeout: l, test_needsWindow: c} = e;
+    ye(r, "secondary");
     l || (l = 5e3),
     c && (window.WW && !window.WW.closed || (window.WW = Te()));
     try {
-        n = await Ae(l, new Error("Timed Out!"), i(d))
+        n = await Ae(l, new Error("Timed Out!"), i(u))
     } catch (e) {
-        console.log(`Error running ${a} for ${d}`),
+        console.log(`Error running ${a} for ${u}`),
         console.log(e),
         n = e.message
     }
@@ -906,3 +1157,45 @@ const be=()=>{
 	for(let e of H)e.test_result={
 		res0:"no result",res1:"no result"}
 	,e.test_row&&ye(e.test_row,"default")}
+
+
+const Pe = (e="BrowserName",t="Desktop/iOS/Android",n="XXX.X")=>({
+    metadata: {
+        name: e,
+        platform: t,
+        version: n,
+        appVersion: appVersionField.innerText
+    },
+    testcases: H.map((({test_name: e, test_result: t})=>({
+        test_name: e,
+        test_result: t
+    })))
+});
+
+window.exportToServer = async (url) => {
+    console.log(url)
+  try {
+    const encodedData = btoa(JSON.stringify(exportResult()));
+    const response = await fetch(url + '?' + encodedData, {
+      method: 'POST', // Explicitly specify POST for sending data
+      headers: {
+        'Content-Type': 'application/json' // Set appropriate content type
+      },
+      // Consider adding other options like credentials or mode
+    });
+
+    if (!response.ok) {
+      throw new Error(`Export failed with status: ${response.status}`);
+    }
+
+    console.log("Data exported successfully!"); // Or handle success response
+
+  } catch (error) {
+    console.error("Error exporting data:", error);
+    // Handle export errors (e.g., network issues, server errors)
+  }
+};
+
+
+
+window.exportResult = Pe;
