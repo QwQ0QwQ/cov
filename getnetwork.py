@@ -48,29 +48,6 @@ async def run(playwright: Playwright, url: str):
         responses[response.status].append(response_data)
 
     page.on("dialog", lambda dialog: print(dialog.message))
-    await page.get_by_role("button").click()  # Will hang here
-    # Double click
-    await page.get_by_text("Item").dblclick()
-    # Right click
-    await page.get_by_text("Item").click(button="right")
-    # Shift + click
-    await page.get_by_text("Item").click(modifiers=["Shift"])
-    # Hover over element
-    await page.get_by_text("Item").hover()
-    # Hit Enter
-    await page.get_by_text("Submit").press("Enter")
-
-    # Dispatch Control+Right
-    await page.get_by_role("textbox").press("Control+ArrowRight")
-
-    # Press $ sign on keyboard
-    await page.get_by_role("textbox").press("$")
-    # Click the top left corner
-    await page.get_by_text("Item").click(position={"x": 0, "y": 0})
-    await page.locator("#item-to-be-dragged").hover()
-    await page.mouse.down()
-    await page.locator("#item-to-drop-at").hover()
-    await page.mouse.up()
     # 订阅请求和响应事件，并调用相应的处理函数
     page.on("request", handle_request)
     page.on("response", handle_response)

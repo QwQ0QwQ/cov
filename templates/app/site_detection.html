@@ -15,8 +15,33 @@
 
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <small>XS-Leak Site Test </small>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                     XS-Leaks </a>
+                <small>finding XS-Leaks with element groups</small>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">
+                                <span class="fa-solid fa-screwdriver-wrench"></span> Admin </a>
+                        </li>
+                         <li class="nav-item">
+                            <!-- <a class="nav-link" href="https://github.com/..."><span class="fab fa-github"></span> Source</a> -->
+                            <a class="nav-link" href="/getelementgroup">
+                                <span class="fab fa-github"></span> GetElementgroup </a>
+                        </li>
+                         <li class="nav-item">
+                            <!-- <a class="nav-link" href="https://github.com/..."><span class="fab fa-github"></span> Source</a> -->
+                            <a class="nav-link" href="/site_detection">
+                                <span class="fab fa-github"></span> site_detection </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </div>
     <div id="testModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -36,54 +61,9 @@
         </div>
     </div>
     <div class="container-fluid" id="testing">
-        <div class="row my-5 justify-content-xl-center">
-            <div class="col-xl-6 bg-light p-3 mx-5 rounded text-justify">
-                <button class="btn btn-primary my-1" id="runAllTestsBtn">
-                    <span class="fas fa-play"></span> Run All Tests
-                </button>
-                <button class="btn btn-primary my-1" id="compareResultsBtn" disabled=true>
-                    <span class="fas fa-exchange-alt"></span> Compare Your Results
-                </button>
-            </div>
-        </div>
-
-        <div class="row mb-1 mx-2">
-            <div class="col-md-8">
-                <span class="badge badge-danger"></span>
-                <span class="badge badge-success"></span>
-                <span class="badge badge-warning"></span>
-                <span class="badge badge-secondary"></span>
-            </div>
-        </div>
         <div class="row mx-2">
             <div class="col-md-12">
                 <small>UA: <code id="appVersionField"></code></small>
-            </div>
-        </div>
-        <div class="row mx-2">
-            <div class="col-md-12">
-<!--                <table class="table table-sm table-hover" height="1000px">-->
-                <table class="table table-sm table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">XS-Leak</th>
-                            <th scope="col">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leakTable">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row mb-4">
-            <div class="col-md-8">
-                <button class="btn btn-primary btn-sm" id="exportResultsBtn">
-                    <span class="fa fa-cloud-download-alt"></span> Export Results
-                </button>
-                <button class="btn btn-primary btn-sm" id="clearResultsBtn">
-                    <span class="fa fa-minus-circle"></span> Clear Results
-                </button>
             </div>
         </div>
     </div>

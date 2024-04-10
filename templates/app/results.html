@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/static/css/prism.css"  />
+    <link rel="stylesheet" href="/static/css/solid.min.css">
+    <link rel="stylesheet" href="/static/css/brands.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+</head>
+
+<body>
+   <div class="row mx-2">
+            <div class="col-md-12">
+               Url:{{result.url}}
+            </div>
+        </div>
+        <div class="row mb-1 mx-2">
+            <div class="col-md-8">
+                <span class="badge badge-danger"></span>
+                <span class="badge badge-success"></span>
+                <span class="badge badge-warning"></span>
+                <span class="badge badge-secondary"></span>
+            </div>
+        </div>
+<!--        <div class="row mx-2">-->
+<!--            <div class="col-md-12">-->
+<!--                <small>UA: <code id="appVersionField"></code></small>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="row mx-2">
+            <div class="col-md-12">
+                <table class="table table-sm table-hover" height="1000px">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">XS-Leak</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leakTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+ <script type="module" src="/static/js/resulttable.js"></script>
+</body>
+</html>

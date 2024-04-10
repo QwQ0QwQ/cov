@@ -76,6 +76,13 @@ class filetypes(Document):
     filetemplate=StringField(required=True)
 
 
-class results(Document):
+class site_detection_results(Document):
     url=StringField(required=True)
     results=ListField(required=True)
+
+    def to_json(self):
+        return {
+            "_id": str(self.pk),
+            "url": self.url,
+            "results": self.results,
+        }

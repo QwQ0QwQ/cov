@@ -5,13 +5,15 @@ from model import differences
 from model import inclusionmethods
 from model import filetypes
 from model import Testcase
-from model import results
+from model import site_detection_results
+from bson import ObjectId
 import sys
 import os
 import json
 from functools import wraps
 from mongoengine import connect, Document, StringField, ListField, disconnect, DictField
 from log import log
+import pymongo
 
 PORT = int(os.getenv('PORT', '9876'))
 BIND_ADDR = os.getenv('BIND_ADDR', '0.0.0.0')
@@ -20,6 +22,10 @@ app = Flask(__name__)
 # app.wsgi_app = ProfilerMiddleware(app.wsgi_app, profile_dir='.')
 app.config['JSON_AS_ASCII'] = False
 app.debug = False
+connect(db='XS-Leaks')
+# app.config['MONGODB_SETTINGS'] = {'db':'XS-Leaks', 'alias':'default'}
+# client = pymongo.MongoClient('mongodb://localhost:27017/')
+# db = client['XS-Leaks']
 
 
 
@@ -96,6 +102,16 @@ def blank():
 def testing():
     return render_template('app/testing.html',
                            )
+
+
+
+@app.route('/results/<_id>')
+def resultsforid(_id):
+    print(_id)
+    result=site_detection_results.objects.get(pk=_id)
+    print(result.to_json())
+    return render_template('app/results.html',result=result.to_json())
+
 
 @app.route('/api/elementgroup', methods=['POST'])
 def api_elementgroup():
@@ -209,11 +225,65 @@ def api_results():
     }
 
 
+@app.route('/api/sitedetectionresults', methods=['POST'])
+def api_sitedetectionresults():
+    FILTERCONFIG = request.get_json(force=True)
+    print("FILTERCONFIG")
+    print(FILTERCONFIG)
+    if not FILTERCONFIG:
+        return 'filterconfig as json not found'
+
+    dbargs = {}
+    if FILTERCONFIG.get('onlyfindings'):
+        dbargs['length__ne'] = 0
+    if FILTERCONFIG.get('url') != []:
+        dbargs['url__in'] = FILTERCONFIG.get('url')
+    print("dbargs")
+    print(dbargs)
+    results = site_detection_results.objects(**dbargs).all()
+    print(type(results))
+    print(results)
+    total = results.count()
+
+    # sort
+    order = request.args.get('order', default='')
+    orderdir = request.args.get('dir', default='')
+
+    if order and orderdir:
+        if orderdir == '-':
+            results = results.order_by('-' + order)
+        else:
+            results = results.order_by(order)
+
+    # pagination
+    offset = request.args.get('offset', type=int, default=-1)
+    limit = request.args.get('limit', type=int, default=-1)
+    if offset != -1 and limit != -1:
+        results = results[offset:offset + limit]
+
+    # TODO i want a dict for the json response
+    # this is not the slow part
+    r = json.loads(results.to_json())
+    print("r:")
+    print(r)
+    for item in r:
+        if "_id" in item:
+            item["_id"] = str(ObjectId(item["_id"]["$oid"]))
+    print(r)
+    print("total")
+    print(total)
+    # response
+    return {
+        'results': r,
+        'total': total,
+    }
+
+
 @app.route('/api/saveresults', methods=['POST'])
 def api_saveresults():
     data = request.get_json()
     print(data)
-    results(url=data.get('url'),results=data.get('results')).save()
+    site_detection_results(url=data.get('url'),results=data.get('results')).save()
     return f"result: {data.get('url')} add success!!"
 
 
@@ -302,13 +372,20 @@ def getelementgroup():
         return render_template('error.html', error_message=str(e))  # Return error message
 
 
+
+
+@app.route('/sitedetectionresults', methods=['GET','POST'])
+@demo_mode_check
+def sitedetectionresults():
+    try:
+        return render_template('app/site_detection_results.html')
+    except Exception as e:
+        log('[error]', f"Failed to convert page: {e}")
+        return render_template('error.html', error_message=str(e))  # Return error message
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory('static', 'favicon.ico')
-
-@app.route('/paper.pdf')
-def paper():
-    return send_from_directory('static', 'autoleak.pdf')
 
 
 @app.route('/maxredirect')
@@ -329,7 +406,6 @@ def maxredirect():
 
 
 def main():
-    connect(db='XS-Leaks')
     app.run(host=BIND_ADDR, port=PORT)
 
 
