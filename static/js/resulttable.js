@@ -10,7 +10,7 @@ let H = [
         new Promise((n=>{
             t.onload = t.onerror = ()=>{
                 t.remove();
-                let s = performance.getEntriesByType("resource").filter((t=>t.name === e)).length;
+                let s = performance.getEntriesByType("resource").filter((t=>t.name == e)).length;
                 return console.debug(`len = ${s}`),
                 n(0 !== s ? 0 : 1)
             }
@@ -847,32 +847,143 @@ let H = [
     test_needsWindow: !0
 }];
 let t = 0;
+// const resultData = JSON.parse('{{ result | safe }}');
+// const regex = /\[.+?\]/g;
+let resultData = document.getElementById('dataid').getAttribute('d');
+resultData=resultData.replace(/\[|\]/g, "")
+console.log(resultData)
+resultData=resultData.split(",");
+const arr = [];
+for (const key in resultData) {
+  arr.push(resultData[key]);
+}
+console.log(arr)
 leakTable.innerText = "";
+
+
+const ye = (e,t)=>{
+    e.classList.remove("table-success", "table-danger", "table-secondary", "table-warning", "table-default"),
+    e.classList.add(`table-${t}`)
+}
+const we = e=> {
+    console.log("resylt:"+e)
+    let {test_row: t, test_result: n} = e;
+    ye(t, (e => {
+            let  n= e;
+            let r=""
+            if(" 1" == n ||"MEDIA_ELEMENT_ERROR: Format error" == n)
+            {
+                r="danger"
+            }
+            else {
+                if (" 0" == n || "" == n || "Failed to open media" == n || "Unsupported source type" == n || "No timing difference." === n)
+                {
+                    r = "success"
+                }
+                else {
+                    if ("no result" == n)
+                    {
+                        r = "default"
+                    }
+                    else
+                    {
+                        if ("Timed Out!" == n)
+                        {
+                            r = "secondary"
+                        }
+                        else
+                        {
+                            if ("string" == typeof n)
+                            {
+                                console.log("warn")
+                                r = "warning"
+                            }
+                            else
+                            {
+                                r = "success"
+                            }
+                        }
+                    }
+                }
+            }
+            console.log(n)
+            console.log(typeof n)
+            console.log(r)
+            return r
+        }
+
+    )(n))
+    // console.log(ye(t, (e => {
+    //         let  n= e;
+    //         return 1 === n ? "danger" :  void 0 === n || "" === n ? "success" :  "no result" === n ? "default" : "Timed Out!" === n ? "secondary" : "No timing difference." === n ? "success" :  "MEDIA_ELEMENT_ERROR: Format error" === n ? "danger" :  "Failed to open media" === n ||  "Unsupported source type" === n ? "success" : "string" == typeof n ? "warning" : "success"
+    //     }
+    // )(n)))
+}
+
 for (let n of H) {
     let {test_name: e, test_description: s} = n, a = leakTable.insertRow();
     a.insertCell(0).innerText = `${t}`;
     let o = document.createElement("a");
     o.innerText = e, o.href = "#", a.insertCell(1).appendChild(o), a.insertCell(2).innerText = `${s}`,
-        a.onclick = ()=>{
-            _e(n)
-        }
-        ,
+        // a.onclick = ()=>{
+        //     _e(n)
+        // }
+        // ,
         t++,
         n.test_row = a,
-        n.test_result ? we(n) : n.test_result = {
-            res0: "no result",
-            res1: "no result"
-    }
+        // console.log(a)
+        n.test_result=arr[t]
+        we(n)
+        // n.test_result ? we(n) : n.test_result = "no result"
 }
-const we = e=> {
-    let {test_row: t, test_result: n} = e;
-    ye(t, (e => {
-            let {res0: t, res1: n} = e;
-            return 0 === t && 1 === n ? "danger" : void 0 === t || void 0 === n || "" === t || "" === n ? "success" : "no result" === t && "no result" === n ? "default" : "Timed Out!" === t && "Timed Out!" === n ? "secondary" : "PaymentRequest not supported." === t && "PaymentRequest not supported." === n || "No timing difference." === t || "No timing difference." === n ? "success" : "DEMUXER_ERROR_COULD_NOT_OPEN: FFmpegDemuxer: open context failed" === t && "MEDIA_ELEMENT_ERROR: Format error" === n ? "danger" : "Failed to open media" === t && "Failed to open media" === n || "Unsupported source type" === t && "Unsupported source type" === n ? "success" : "string" == typeof t || "string" == typeof n ? "warning" : "success"
-        }
-    )(n))
-}
-const ye = (e,t)=>{
-    e.classList.remove("table-success", "table-danger", "table-secondary", "table-warning", "table-default"),
-    e.classList.add(`table-${t}`)
-}
+
+
+
+
+// const _e = async e=>{
+//     let {test_name: n, test_url: s, test_file: a, test_description: o, test_result: i} = e
+//       , {url0: r, url1: l} = t(s);
+//     testModalTitel.innerText = n,
+//     testModalDescription.innerText = o,
+//     testModalRes0.innerText = i.res0,
+//     testModalUrl0.href = r,
+//     testModalUrl0.innerText = r,
+//     testModalRes1.innerText = i.res1,
+//     testModalUrl1.href = l,
+//     testModalUrl1.innerText = l,
+//     testModalFileLink.href = a,
+//     testModalFileLink.innerText = a;
+//     let c = await fetch(a);
+//     testModalCode.textContent = await c.text(),
+//     Prism.highlightElement(testModalCode),
+//     runCustomTestUrl.placeholder = "https?://",
+//     runCustomTestUrl.value = l,
+//     runCustomTestResult.innerText = "",
+//     runCustomTestBtn.onclick = async()=>{
+//         let t = runCustomTestUrl.value
+//           , n = "Invalid URL";
+//         Ee(t) && (runCustomTestBtn.disabled = !0,
+//         n = await ke(t, e),
+//         runCustomTestBtn.disabled = !1),
+//         "" !== runCustomTestResult.innerText && runCustomTestResult.appendChild(document.createElement("hr"));
+//         let s = document.createElement("div");
+//         s.innerText = `leak('${t}')\n        -> ${n}`,
+//         runCustomTestResult.appendChild(s),
+//         window.WW && window.WW.close()
+//     }
+//     ,
+//     new ge.Modal("#testModal",{
+//         backdrop: !0
+//     }).show(),
+//     location.hash = `${n}`,
+//     runTestBtn.onclick = async()=>{
+//         runTestBtn.disabled = !0,
+//         e.test_result = await ve(e),
+//         runTestBtn.disabled = !1,
+//         we(e),
+//         localStorage.setItem("results", JSON.stringify(Pe("Your Browser", "", ""))),
+//         testModalRes0.innerText = e.test_result.res0,
+//         testModalRes1.innerText = e.test_result.res1,
+//         window.WW && window.WW.close()
+//     }
+// }

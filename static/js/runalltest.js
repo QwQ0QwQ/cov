@@ -1031,7 +1031,6 @@ let H = [
 
 runCustomTestUrl.placeholder = "https?://",
 runAllTests.onclick = async e=> {
-
     Se(),
         Fe(),
         be();
@@ -1044,12 +1043,8 @@ runAllTests.onclick = async e=> {
         window.WW = Te();
     const results = [];
     for (let e of H)
-        // console.log(e)
-        e.test_result = await ke(u, e),
-            results.push(e.test_result);
-    // we(e);
-    Se(),
-        runAllTests.innerHTML = t,
+        e.test_result = await ke(u, e), results.push(e.test_result);
+    Se(), runAllTests.innerHTML = t,
         // exportToServer("https://127.0.0.1:8000/"),
         window.WW.close()
         // localStorage.setItem("results", JSON.stringify(Pe("Your Browser", "", ""))),
@@ -1144,8 +1139,9 @@ const we = e=>{
 
 
 const Se = ()=>{
+    console.log("switch!!!")
+    console.log(runAllTests.disabled)
     runAllTests.disabled ? runAllTests.disabled = !1 : runAllTests.disabled = !0
-    // exportResultsBtn.disabled ? exportResultsBtn.disabled = !1 : exportResultsBtn.disabled = !0
 }
 
 const Fe = (e=navigator.userAgent)=>{
