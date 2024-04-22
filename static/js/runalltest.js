@@ -1029,8 +1029,28 @@ let H = [
     test_needsWindow: !0
 }];
 
+
+const JSONStringify = (option) => {
+  return JSON.stringify(option,
+    (key, val) => {
+      // 处理函数丢失问题
+      if (typeof val === 'function') {
+        return `${val}`;
+      }
+      // 处理undefined丢失问题
+      if (typeof val === 'undefined') {
+        return 'undefined';
+      }
+      return val;
+    },
+    2
+  )
+}
+
 runCustomTestUrl.placeholder = "https?://",
 runAllTests.onclick = async e=> {
+    // let lh=JSONStringify(H)
+    // console.log(lh)
     Se(),
         Fe(),
         be();

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modify File Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            width: 80%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="modify_id" d="{{dataid}}" style="display: none;" ></div>
+    <h1>Modify file</h1>
+    <form method="POST">
+
+        <textarea name="file_content" rows="30" cols="150" id="modified-content-input">{{ file_content }}</textarea>
+        <br>
+        <input type="submit" class="submit-btn" id='modifyButton' value="Save Changes">
+    </form>
+</body>
+<script type="module" src="/static/js/modify_testtemplate.js"></script>
+</html>

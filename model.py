@@ -86,3 +86,22 @@ class site_detection_results(Document):
             "url": self.url,
             "results": self.results,
         }
+
+
+class testtemplate(Document):
+    test_name=StringField(required=True)
+    test_category=StringField()
+    test_description=StringField()
+    test_file=StringField(required=True)
+    test_timeout=IntField()
+    test_needswindow=StringField()
+    def to_json(self):
+        return {
+            "_id": str(self.pk),
+            "test_name": self.test_name,
+            "test_category": self.test_category,
+            "test_description": self.test_description,
+            "test_file": self.test_file,
+            "test_timeout": self.test_timeout,
+            "test_needswindow": self.test_needswindow
+        }

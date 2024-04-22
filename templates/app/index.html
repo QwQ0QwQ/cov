@@ -2,103 +2,104 @@
 <html>
 
 <head>
-<!--    <meta charset="utf-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-<!--    <meta http-equiv="Content-Language" content="en">-->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Language" content="en">
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css" integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
     <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
+<!--    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">-->
      <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/fontawesome.min.css">
     <link rel="stylesheet" href="/static/css/prism.css"  />
     <link rel="stylesheet" href="/static/css/solid.min.css">
     <link rel="stylesheet" href="/static/css/brands.min.css">
     <link rel="stylesheet" href="/static/css/custom.css">
-<!--    <style>-->
+    <style>
 
-<!--        body {-->
-<!--            /* fix modal padding */ -->
-<!--            padding-right: 0px !important;-->
-<!--        }-->
+        body {
+            /* fix modal padding */
+            padding-right: 0px !important;
+        }
 
-<!--        .navbar > a {-->
-<!--            text-decoration: none;-->
-<!--        }-->
+        .navbar > a {
+            text-decoration: none;
+        }
 
-<!--        .container {-->
-<!--            max-width: 1920px;-->
-<!--            width: 92%;-->
-<!--        }-->
-<!--        table {-->
-<!--            width: 100%;-->
-<!--        }-->
-<!--        td.gridjs-td {-->
-<!--            padding: 2px 5px;-->
-<!--        }-->
-<!--        -->
-<!--        /* only for id resultTable */-->
-<!--        table#resultTable th:nth-child(6){-->
-<!--            width: 25%;-->
-<!--        }-->
-<!--        table#resultTable th:nth-child(7){-->
-<!--            width: 8%;-->
-<!--        }-->
-<!--        table#resultTable th:nth-child(1){-->
-<!--            width: 12%;-->
-<!--        }-->
+        .container {
+            max-width: 1920px;
+            width: 92%;
+        }
+        table {
+            width: 100%;
+        }
+        td.gridjs-td {
+            padding: 2px 5px;
+        }
 
-<!--        table#resultTable th:nth-child(2){-->
-<!--            width: 25%;-->
-<!--        }-->
+        /* only for id resultTable */
+        table#resultTable th:nth-child(6){
+            width: 25%;
+        }
+        table#resultTable th:nth-child(7){
+            width: 8%;
+        }
+        table#resultTable th:nth-child(1){
+            width: 12%;
+        }
 
-<!--        table#resultTable th:nth-child(5){-->
-<!--            width: 5%;-->
-<!--        }-->
+        table#resultTable th:nth-child(2){
+            width: 25%;
+        }
 
-<!--        .tags{-->
-<!--            white-space: nowrap; -->
-<!--            overflow: scroll; /* maybe use overflow: hidden; this is so slow in chrome */-->
-<!--            -ms-overflow-style: none; /* dont show scrollbar */-->
-<!--            scrollbar-width: none;-->
-<!--        }-->
-<!--        .tags::-webkit-scrollbar {-->
-<!--            display: none;-->
-<!--        }-->
+        table#resultTable th:nth-child(5){
+            width: 5%;
+        }
 
-<!--        table.path-table td {-->
-<!--            width: unset !important;-->
-<!--            max-width: 100px;-->
-<!--            overflow-x: hidden;-->
-<!--            white-space: nowrap;-->
-<!--            text-overflow: scroll;-->
-<!--        }-->
-<!--        /* first td can be longer */-->
-<!--        table.path-table td:first-child {-->
-<!--            max-width: 400px;-->
-<!--            overflow: hidden;-->
+        .tags{
+            white-space: nowrap;
+            overflow: scroll; /* maybe use overflow: hidden; this is so slow in chrome */
+            -ms-overflow-style: none; /* dont show scrollbar */
+            scrollbar-width: none;
+        }
+        .tags::-webkit-scrollbar {
+            display: none;
+        }
 
-<!--        }-->
+        table.path-table td {
+            width: unset !important;
+            max-width: 100px;
+            overflow-x: hidden;
+            white-space: nowrap;
+            text-overflow: scroll;
+        }
+        /* first td can be longer */
+        table.path-table td:first-child {
+            max-width: 400px;
+            overflow: hidden;
 
-<!--        #filterbtn{-->
-<!--            background-color: #f9fafb;-->
-<!--            border: 1px solid #e5e7eb;-->
-<!--            border-top: none;-->
-<!--            color: #6b7280;-->
-<!--            outline: none;-->
-<!--            position: relative;-->
-<!--            -webkit-user-select: none;-->
-<!--            -moz-user-select: none;-->
-<!--            user-select: none;-->
-<!--            vertical-align: middle;-->
-<!--            white-space: nowrap;-->
-<!--        }-->
-<!--        #filterbtn:hover{-->
-<!--            background-color: #e5e7eb;-->
-<!--        }-->
+        }
 
-<!--    </style>-->
+        #filterbtn{
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            color: #6b7280;
+            outline: none;
+            position: relative;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        #filterbtn:hover{
+            background-color: #e5e7eb;
+        }
+
+    </style>
     <title>XS-LeakS</title>
 </head>
 
@@ -118,10 +119,10 @@
                             <a class="nav-link" href="/admin">
                                 <span class="fa-solid fa-screwdriver-wrench"></span> Admin </a>
                         </li>
-                         <li class="nav-item">
+                          <li class="nav-item">
                             <!-- <a class="nav-link" href="https://github.com/..."><span class="fab fa-github"></span> Source</a> -->
-                            <a class="nav-link" href="/getelementgroup">
-                                <span class="fa-solid fa-screwdriver-wrench"></span> Elementgroup </a>
+                            <a class="nav-link" href="/testfun">
+                                <span class="fa-solid fa-screwdriver-wrench"></span> TestTemplate </a>
                         </li>
                          <li class="nav-item">
                             <!-- <a class="nav-link" href="https://github.com/..."><span class="fab fa-github"></span> Source</a> -->

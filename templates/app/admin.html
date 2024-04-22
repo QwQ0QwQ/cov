@@ -3,7 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>AutoGraph</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Language" content="en">
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css" integrity="sha512-G/T7HQJXSeNV7mKMXeJKlYNJ0jrs8RsWzYG7rVACye+qrcUhEAYKYzaa+VFy6eFzM2+/JT1Q+eqBbZFSHmJQew==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
+<!--    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">-->
+     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/static/css/prism.css"  />
+    <link rel="stylesheet" href="/static/css/solid.min.css">
+    <link rel="stylesheet" href="/static/css/brands.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
     <style>
         .ebtn {
             color: black;
@@ -81,9 +96,38 @@
 </head>
 <body>
 <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                     XS-Leaks </a>
+                <small>finding XS-Leaks with element groups</small>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">
+                                <span class="fa-solid fa-screwdriver-wrench"></span> Admin </a>
+                        </li>
+                          <li class="nav-item">
+                            <!-- <a class="nav-link" href="https://github.com/..."><span class="fab fa-github"></span> Source</a> -->
+                            <a class="nav-link" href="/testfun">
+                                <span class="fa-solid fa-screwdriver-wrench"></span> TestTemplate </a>
+                        </li>
+                         <li class="nav-item">
+                            <!-- <a class="nav-link" href="https://github.com/..."><span class="fab fa-github"></span> Source</a> -->
+                            <a class="nav-link" href="/site_detection">
+                                <span class="fa-solid fa-screwdriver-wrench"></span> site_detection </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div class="container-fluid">
     <div class="row my-5">
         <div class="col-xl-12">
-            <h1 class="text-center">XS-Leaks</h1>
             <hr>
             <h4>Actions</h4>
             <div class="my-2">
@@ -157,7 +201,6 @@
                         <th>FileType</th>
                         <th>Browser</th>
                         <th>Testcase</th>
-                        <th>Actions</th>
                         <th width="50px">#</th>
                         <th>Details Result</th>
                         <th>Run Took</th>
@@ -176,16 +219,6 @@
                             <td>
                                 <a target="_blank" href="/test/{{ name }}" title="Open Testcase">🔗</a>
                                 <a class="switchbtn ebtn" href="/switch/{{ name }}", title="Switch State">{{"1️⃣" if r.includee_state else "0️⃣"}}</a>
-                            </td>
-                            <td class="icons">
-                                <a class="deletebtn ebtn" href="/delete/{{ name }}" title="Delete">🗑</a>
-                                <a class="runbtn ebtn" href="/run/{{ name }}" title="Run Test">⏯️</a>
-                                <a class="tagbtn ebtn" href="/tag/{{ name }}" title="Remake Tags">🏷️</a>
-                                <a class="logsbtn ebtn" href="logs/{{ name }}" title="Show Logs">📝</a>
-                                {% if r.length is not none  %}
-                                <a class="resultsbtn ebtn" href="/results/{{ name }}" title="Show Results">📈</a>
-                                <a class="detailsbtn ebtn" type="button" href="/details/{{ name }}" title="Show Result Details">🔍</a>
-                                {% endif %}
                             </td>
                             <td class="susnumber">
                                 {% if r.length is not none  %}
@@ -300,7 +333,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+<script src="{{ url_for('static', filename='/js/admin.js') }}"></script>
 
 </body>
 </html>
