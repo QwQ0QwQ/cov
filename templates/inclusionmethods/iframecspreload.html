@@ -4,21 +4,21 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('iframe')
-        window.XSL_inclusionMethod.setAttribute('csp', 'default-src \'self\';')
-        window.XSL_inclusionMethod.src = '{{ url | safe }}'
-        window.XSL_inclusionMethod.onload = () => {
+        window.inclusionMethod = document.createElement('iframe')
+        window.inclusionMethod.setAttribute('csp', 'default-src \'self\';')
+        window.inclusionMethod.src = '{{ url | safe }}'
+        window.inclusionMethod.onload = () => {
             // change location after onload once
             setTimeout(() => {
-                window.XSL_inclusionMethod.onload = null
-                window.XSL_inclusionMethod.src = '{{ url | safe }}'
+                window.inclusionMethod.onload = null
+                window.inclusionMethod.src = '{{ url | safe }}'
             }, 500)
 
         }
 
-        window.XSL_runInclusionMethod = () => {
-            document.body.appendChild(window.XSL_inclusionMethod)
-            console.log('[Testcase] XSL_runInclusionMethod called')
+        window.InclusionMethod = () => {
+            document.body.appendChild(window.inclusionMethod)
+            console.log('[Testcase] InclusionMethod called')
         }
 
     </script>

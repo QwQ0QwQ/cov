@@ -3,7 +3,7 @@ modifyButton.onclick = async (e) => {
 
     // Get the modified content from the UI (replace with your content retrieval logic)
     const modifiedContent = document.getElementById('modified-content-input').value;
-    const modifyid=document.getElementById('modify_id').getAttribute('d');;// Assuming an input with this ID holds the content
+    const modifyid=document.getElementById('modify_id').getAttribute('d');// Assuming an input with this ID holds the content
     console.log(modifyid)
     console.log(modifiedContent)
     // Check if content is empty (optional, replace with your validation logic)

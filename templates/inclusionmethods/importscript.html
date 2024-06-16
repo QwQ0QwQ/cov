@@ -5,10 +5,10 @@
 <body>
     <script>
 
-        window.XSL_runInclusionMethod = () => {
+        window.InclusionMethod = () => {
             let blob = new Blob(["importScripts('{{ url | safe }}');"])
-            window.XSL_inclusionMethod = new Worker(window.URL.createObjectURL(blob))
-            console.log('[Testcase] XSL_runInclusionMethod called')
+            window.inclusionMethod = new Worker(window.URL.createObjectURL(blob))
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

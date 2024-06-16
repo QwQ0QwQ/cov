@@ -10,6 +10,7 @@ import logging
 import tagging
 
 def run_testcase(basedomain, inclusionmethod, difference, filetype, browser):
+    print("================================run_testcase====================================")
     start = time.time()
     print(start)
     log(f"Started with {inclusionmethod}-{difference}-{filetype}-{browser}")
@@ -35,7 +36,7 @@ def run_testcase(basedomain, inclusionmethod, difference, filetype, browser):
     result.time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     result.logs = "Running...\n"
     result.save()
-    print(result.url)
+    # print(result.url)
     # logging is a bit of magic
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
@@ -70,11 +71,11 @@ def run_testcase(basedomain, inclusionmethod, difference, filetype, browser):
 
         # switch state back
         result.switch_state()
-
+        print("===========================================================diff==========================================================")
         # diff graphs and save results
         diff = diffGraphs(g1, g2)
-        print("diff:")
-        print(diff)
+        # print("diff:")
+        # print(diff)
         result.diff_results.clear()
         result.diff_results.update(diff)
         result.logs = log_stream.getvalue()
@@ -99,7 +100,7 @@ def run_tagging():
     # no_cache otherwise we run into memory issues :/
     testcases = Testcase.objects(length__ne=0).no_cache().only(
         'diff_results', 'diff_tags').order_by('-time')
-    print(testcases)
+    # print(testcases)
     n = 0
     m = testcases.count()
     for testcase in testcases:

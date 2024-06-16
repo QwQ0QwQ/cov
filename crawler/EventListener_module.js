@@ -1075,6 +1075,10 @@
                     }
                 } catch (err) { this.log.warn("crawler", "Error with beacon") }
 
+                //测试
+                console.log("beaconurl")
+                console.log(this.config.beaconURL)
+                console.log(this.config)
                 /* Store a string representation of the configuration in the graph metadata. */
                 for (var key in this.config) {
                     if (typeof (this.config[key]) != "function") {
@@ -1630,12 +1634,12 @@
 
                 var makeEventListener = (srcObj, eventName) => {
                     return (event) => {
-                        if (!srcObj["XSL_events"]) srcObj["XSL_events"] = {}
-                        if (!srcObj["XSL_events"][eventName]) srcObj["XSL_events"][eventName] = []
+                        if (!srcObj["events"]) srcObj["events"] = {}
+                        if (!srcObj["events"][eventName]) srcObj["events"][eventName] = []
                         // overwrite timeStamp
                         Object.defineProperty(event, 'timeStamp', {})
                         // add event so we can crawl it
-                        srcObj["XSL_events"][eventName].push(event)
+                        srcObj["events"][eventName].push(event)
                         console.log(`[EventListener Module] triggered ${eventName} on ${srcObj}`)
                     }
                 }
@@ -2771,9 +2775,6 @@
 
                 return objectAssessment
             }
-
-
-
             ,
 
             /* Contains info about the object, like value and type, various serializations, isFrozen, ... */
@@ -2867,7 +2868,7 @@
         return newCrawler
     }
     var c = Crawler();
-    await c.deepRegisterEventCatchall(window)
-    return 
+    return await c.deepRegisterEventCatchall(window)
+    // return
 
 })();

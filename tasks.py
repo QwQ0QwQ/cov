@@ -15,7 +15,6 @@ from celery.signals import task_prerun
 from config import celeryconfig
 from mongoengine import connect
 connect(db='XS-Leaks')
-# Start the Celery application
 celeryapp = Celery('XS-Leaks',
                    result_backend=celeryconfig.result_backend,
                    broker_url=celeryconfig.broker_url,
@@ -29,13 +28,9 @@ celeryapp = Celery('XS-Leaks',
                    )
 celeryapp.config_from_object(celeryconfig)
 celeryapp.set_default()
-# celeryapp.conf.update(celeryconfig)
 celeryapp.autodiscover_tasks()
 
 
-# @task_prerun.connect
-# def on_task_init(*args, **kwargs):
-#     mongo_reconnect()
 
 
 @celery.shared_task(max_retries=3,
@@ -169,8 +164,6 @@ def run_tagging(self):
     with open('config/tagrules.yml', 'r') as f:
         tagrules = tagging.load_tagrules(f)
 
-    # only get testcases that have a result
-    # no_cache otherwise we run into memory issues :/
     testcases = Testcase.objects(length__ne=0).no_cache().only(
         'diff_results', 'diff_tags').order_by('-time')
     n = 0

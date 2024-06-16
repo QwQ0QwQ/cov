@@ -1,6 +1,5 @@
-# import mongoengine
 from mongoengine import connect, Document, StringField, disconnect, BooleanField, IntField, DictField, ListField
-
+import json
 
 class Testcase(Document):
 
@@ -20,7 +19,6 @@ class Testcase(Document):
     time                = StringField()
     logs                = StringField()
 
-    # This contains the whole result of the diff-algorithm as json
     diff_results         = DictField()
     url                  = StringField()
     diff_tags            = ListField()
@@ -87,6 +85,8 @@ class site_detection_results(Document):
             "results": self.results,
         }
 
+    def get_results(self):
+        return json.dumps(self.results)
 
 class testtemplate(Document):
     test_name=StringField(required=True)

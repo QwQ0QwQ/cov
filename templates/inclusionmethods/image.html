@@ -4,12 +4,12 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('img')
+        window.inclusionMethod = document.createElement('img')
 
-        window.XSL_runInclusionMethod = () => {
-            window.XSL_inclusionMethod.src = '{{ url | safe }}'
-            document.body.appendChild(window.XSL_inclusionMethod)
-            console.log('[Testcase] XSL_runInclusionMethod called')
+        window.InclusionMethod = () => {
+            window.inclusionMethod.src = '{{ url | safe }}'
+            document.body.appendChild(window.inclusionMethod)
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

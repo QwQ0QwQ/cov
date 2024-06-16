@@ -133,4 +133,3 @@ const leak = async(url, waitTime=2000, limit=255) => {
     return res
 }
 
-export { leak }

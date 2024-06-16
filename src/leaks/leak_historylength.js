@@ -37,4 +37,3 @@ const switchToBlank = async (w) => {
     }
 }
 
-export { leak }

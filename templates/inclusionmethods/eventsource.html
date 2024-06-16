@@ -6,30 +6,29 @@
     <script>
         var makeEventListener = (srcObj, eventName) => {
             return (event) => {
-                if( ! srcObj["XSL_events"] )			srcObj["XSL_events"] = {}
-                if( ! srcObj["XSL_events"][eventName] )	srcObj["XSL_events"][eventName] = []
+                if( ! srcObj["events"] )			srcObj["events"] = {}
+                if( ! srcObj["events"][eventName] )	srcObj["events"][eventName] = []
                 // overwrite timeStamp
                 Object.defineProperty(event, 'timeStamp', {})
                 // add event so we can crawl it
-                srcObj["XSL_events"][eventName].push(event)
+                srcObj["events"][eventName].push(event)
                 console.log(`[EventListener Module] triggered ${eventName} on ${srcObj}`)
             }
         }
 
 
-        window.XSL_runInclusionMethod = async () => {
+        window.InclusionMethod = async () => {
             try{
-                window.XSL_inclusionMethod = new EventSource('{{ url | safe }}', {withCredentials: true})
+                window.inclusionMethod = new EventSource('{{ url | safe }}', {withCredentials: true})
                 // for this test we have to add the event listeners manually :/
-                window.XSL_inclusionMethod.addEventListener('open', makeEventListener(window.XSL_inclusionMethod, 'open'))
-                window.XSL_inclusionMethod.addEventListener('close', makeEventListener(window.XSL_inclusionMethod, 'close'))
-                window.XSL_inclusionMethod.addEventListener('error', makeEventListener(window.XSL_inclusionMethod, 'error'))
-                window.XSL_inclusionMethod.addEventListener('message', makeEventListener(window.XSL_inclusionMethod, 'message'))
-                
+                window.inclusionMethod.addEventListener('open', makeEventListener(window.inclusionMethod, 'open'))
+                window.inclusionMethod.addEventListener('close', makeEventListener(window.inclusionMethod, 'close'))
+                window.inclusionMethod.addEventListener('error', makeEventListener(window.inclusionMethod, 'error'))
+                window.inclusionMethod.addEventListener('message', makeEventListener(window.inclusionMethod, 'message'))
             } catch (error) {
-                window.XSL_error = error
+                window.error = error
             }
-            console.log('[Testcase] XSL_runInclusionMethod called')
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

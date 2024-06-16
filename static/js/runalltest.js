@@ -1049,8 +1049,6 @@ const JSONStringify = (option) => {
 
 runCustomTestUrl.placeholder = "https?://",
 runAllTests.onclick = async e=> {
-    // let lh=JSONStringify(H)
-    // console.log(lh)
     Se(),
         Fe(),
         be();
@@ -1061,24 +1059,15 @@ runAllTests.onclick = async e=> {
         runAllTests.disabled = !1),
         runAllTests.innerText = "Running ...",
         window.WW = Te();
-    const results = [];
-    for (let e of H)
-        e.test_result = await ke(u, e), results.push(e.test_result);
     Se(), runAllTests.innerHTML = t,
         // exportToServer("https://127.0.0.1:8000/"),
         window.WW.close()
-        // localStorage.setItem("results", JSON.stringify(Pe("Your Browser", "", ""))),
-        // compareResultsBtn.disabled = !1
-    let data = {
-        url: u,
-        results: results
-    }
-    fetch('/api/saveresults', {
+    fetch('/runsitedetection', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(data)
+  body: JSON.stringify({ url: u })
 })
 .then(response => response.json())
 .then(data => console.log('Data sent successfully:', data))
@@ -1134,7 +1123,7 @@ const Ee = e=>{
 
 
 const ke = async(e,t)=>{
-    let n, {test_name: s, test_function: a, test_timeout: o, test_needsWindow: i} = t, r = e;
+    let n, {test_name: s, test_file: a, test_timeout: o, test_needsWindow: i} = t, r = e;
     o || (o = 5e3),
     i && (window.WW && !window.WW.closed || (window.WW = Te()));
     try {
@@ -1144,6 +1133,26 @@ const ke = async(e,t)=>{
         console.log(e),
         n = e.message
     }
+    //  try {
+    //   const filePath = `/get_leak_function`;
+    //   // url.searchParams.append('testfile', a);// Construct the URL with file path
+    //   const leakResponse = await fetch(filePath,{
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json' // Set content type to JSON
+    //     },
+    //     body: JSON.stringify({ testfile:a})});
+    //
+    //   const leakModule = await leakResponse.json();
+    //   console.log(leakModule)
+    //   const { leak } = leakModule; // Destructure leak function
+    //      console.log(leak)
+    //   n = await Ae(o, new Error("Timed Out!"), leak(r));
+    // } catch (e) {
+    //   console.error(`Error running ${s} for ${r}`);
+    //   console.error(e);
+    //   n = e.message;
+    // }
     return n
 };
 

@@ -4,14 +4,14 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('iframe')
-        window.XSL_inclusionMethod.setAttribute('csp', 'default-src \'self\';')
-        window.XSL_inclusionMethod.src = '{{ url | safe }}'
+        window.inclusionMethod = document.createElement('iframe')
+        window.inclusionMethod.setAttribute('csp', 'default-src \'self\';')
+        window.inclusionMethod.src = '{{ url | safe }}'
 
 
-        window.XSL_runInclusionMethod = () => {
-            document.body.appendChild(window.XSL_inclusionMethod)
-            console.log('[Testcase] XSL_runInclusionMethod called')
+        window.runInclusionMethod = () => {
+            document.body.appendChild(window.inclusionMethod)
+            console.log('[Testcase] runInclusionMethod called')
         }
         
     </script>

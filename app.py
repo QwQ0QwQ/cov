@@ -1,6 +1,7 @@
-import urllib
-
+import asyncio
+import logging
 from flask import Flask, request, render_template, make_response, jsonify, send_from_directory, redirect, url_for
+from werkzeug.exceptions import BadRequest
 from model import elementgroup
 from model import browsers
 from model import differences
@@ -14,34 +15,19 @@ import sys
 import os
 import json
 from functools import wraps
-from mongoengine import connect, Document, StringField, ListField, disconnect, DictField
+from mongoengine import connect, disconnect
 from log import log
-import pymongo
+from maketest import maketest
 import tasks
 import test2
 PORT = int(os.getenv('PORT', '9876'))
 BIND_ADDR = os.getenv('BIND_ADDR', '0.0.0.0')
 app = Flask(__name__)
-# from werkzeug.middleware.profiler import ProfilerMiddleware
-# app.wsgi_app = ProfilerMiddleware(app.wsgi_app, profile_dir='.')
 app.config['JSON_AS_ASCII'] = False
 app.debug = False
-connect(db='XS-Leaks')
-# app.config['MONGODB_SETTINGS'] = {'db':'XS-Leaks', 'alias':'default'}
-# client = pymongo.MongoClient('mongodb://localhost:27017/')
-# db = client['XS-Leaks']
+disconnect()
+connect(db='XS-Leaks',host='mongodb://192.168.124.12:27017/XS-Leaks')
 
-
-
-# some endpoints are not available in demo mode
-def demo_mode_check(func):
-    @wraps(func)
-    def check(*args, **kwargs):
-        if os.getenv('DEMO_MODE', '0') != '0':
-            return 'Error: This public instance of Autoleak is in Demo Mode.', 400
-        return func(*args, **kwargs)
-
-    return check
 
 
 @app.route('/', methods=['GET'])
@@ -51,7 +37,6 @@ def index():
     filetype = []
     browser = []
     try:
-        # Fetch configuration document from the collection
         differences_datalist = differences.objects().all()
         inclusionmethods_datalist = inclusionmethods.objects().all()
         filetypes_datalist = filetypes.objects().all()
@@ -67,7 +52,6 @@ def index():
         log('[init]', "Loading config from MongoDB")
     except Exception as e:
         log('[error]', f"Failed to load config from MongoDB: {e}")
-        # Handle the error appropriately, potentially using defaults
     testcase_results=Testcase.objects.all()
     return render_template('app/index.html',
                            browsers=browser,
@@ -86,7 +70,6 @@ def testfun():
 
 
 @app.route('/runner', methods=['POST'])
-@demo_mode_check
 def runner():
     tasksamount = 0
     basedomain = "127.0.0.1:9876"
@@ -98,7 +81,6 @@ def runner():
         return 'filetype not found'
     if 'browsers' not in request.form:
         return 'browser not found'
-    print(request.form)
     try:
         for i in request.form.getlist('inclusionmethods'):
             for d in request.form.getlist('differences'):
@@ -125,80 +107,73 @@ def site_detection():
 def blank():
     return render_template('app/blank.html',)
 
-@app.route('/testing', methods=['GET'])
-def testing():
-    return render_template('app/testing.html')
+
+
+
+@app.route('/get_leak_function/',methods=['GET','POST'])
+def get_leak_function():
+    content = request.get_json()
+    testfile = content["testfile"]
+    filepath="."+testfile
+    if not testfile:
+        raise BadRequest('Missing test name')
+    try:
+        with open(f'{filepath}', 'r') as f:
+            leak_js_content = f.read()
+    except FileNotFoundError:
+        return jsonify(error='File not found'), 404
+    return jsonify(content=leak_js_content)
 
 @app.route('/tagconfig')
 def display_tagconfig():
-    # Specify the file path
     file_path = './config/tagrules.yml'
-
-    # Read the file contents
     try:
         with open(file_path, 'r') as f:
             file_content = f.read()
     except FileNotFoundError:
-        # Handle file not found error
         return 'File not found!'
-
-    # Render the template with the file content
     return render_template('app/display.html', file_content=file_content)
 
 
 @app.route('/testtemplate/<_id>', methods=['GET','POST'])
 def display_test_template(_id):
-    # Decode the encoded filename
     result = testtemplate.objects.get(pk=_id)
-    print(result.to_json())
-    # Construct the file path
-    file_path = '.'+result.to_json().get('test_file')
-
-    # Check if the file exists
+    file_path = result.to_json().get('test_file')
     if not os.path.exists(file_path):
         return 'File not found!'
-    # Read the file contents
     with open(file_path, 'r') as f:
         file_content = f.read()
-
-    # Render the template with the file content
     return render_template('app/modify_testtemplate.html', file_content=file_content,dataid=_id)
 
 
 @app.route('/modify_testtemplate/', methods=['GET','POST'])
 def modify_testtemplate():
-    # Get the modified file content from the request form
     modified_content = request.get_json()
-    print("modify")
-    print(modified_content)
-    # Specify the file path
     result = testtemplate.objects.get(pk=modified_content['id'])
-    print(result.to_json())
-    # Construct the file path
-    file_path = '.' + result.to_json().get('test_file')
-    # Write the modified content to the file
+    file_path = result.to_json().get('test_file')
     try:
         with open(file_path, 'w') as f:
             f.write(modified_content['content'])
-
         response_data = {'message': 'File modified successfully!'}
         return json.dumps(response_data)
     except Exception as e:
-        # Handle any errors during writing
         response_data = {'message': 'Error modifying file!'}
         return json.dumps(response_data)
 
 
+@app.route('/add_testtemplate/', methods=['GET','POST'])
+def testman():
+    return render_template('app/addtesttemplate.html')
+
+
+@app.route('/testman/', methods=['GET','POST'])
+def add_testtemplate():
+    return render_template('app/testman.html')
 
 @app.route('/modify_tagconfig', methods=['GET','POST'])
 def modify_tagconfig():
-    # Get the modified file content from the request form
     modified_content = request.get_json()
-    print("modify")
-    print(modified_content['content'])
-    # Specify the file path
     file_path = './config/tagrules.yml'
-    # Write the modified content to the file
     try:
         with open(file_path, 'w') as f:
             f.write(modified_content['content'])
@@ -206,7 +181,6 @@ def modify_tagconfig():
         response_data = {'message': 'File modified successfully!'}
         return json.dumps(response_data)
     except Exception as e:
-        # Handle any errors during writing
         response_data = {'message': 'Error modifying file!'}
         return json.dumps(response_data)
 
@@ -218,15 +192,9 @@ def test(inclusionmethod, difference, filetype, browser):
         log('[init]', "Loading config from MongoDB")
     except Exception as e:
         log('[error]', f"Failed to load config from MongoDB: {e}")
-        # Handle the error appropriately, potentially using defaults
-    # inclusionmethods = config.get('inclusionmethods', [])
-    # crossorigindomain = os.environ.get('CROSSORIGINDOMAIN')
-
     i = next((i for i in inclusionmethods_datalist if i['name'] == inclusionmethod), None)
-
     if not i:
         return 'Inclusionmethod not found', 404
-
     if request.args.get('show', None):
         with open(f'./templates/inclusionmethods/{i["template"]}', 'rb') as f:
             return f.read(), 200, {'Content-Type': 'text/plain; charset=utf-8'}
@@ -234,11 +202,10 @@ def test(inclusionmethod, difference, filetype, browser):
     return render_template(f'inclusionmethods/{i["template"]}', url=url)
 
 
-# include custom url for real world tests
+
 @app.route('/include/<inclusionmethod>/')
 def include(inclusionmethod):
     try:
-        # Fetch configuration document from the collection
         differences_datalist = differences.objects().all()
         inclusionmethods_datalist = inclusionmethods.objects().all()
         filetypes_datalist = filetypes.objects().all()
@@ -246,7 +213,6 @@ def include(inclusionmethod):
         log('[init]', "Loading config from MongoDB")
     except Exception as e:
         log('[error]', f"Failed to load config from MongoDB: {e}")
-        # Handle the error appropriately, potentially using defaults
     i = next((i for i in inclusionmethods_datalist if i['name'] == inclusionmethod), None)
     if i and request.args.get('url') and request.args.get('url').startswith('http'):
         return render_template(f'inclusionmethods/{i["template"]}', url=request.args.get('url'))
@@ -256,14 +222,11 @@ def include(inclusionmethod):
 @app.route('/differences/<inclusionmethod>/<difference>/<filetype>/<browser>')
 def rundifferences(inclusionmethod, difference, filetype, browser):
     try:
-        # Fetch configuration document from the collection
         differences_datalist = differences.objects().all()
         filetypes_datalist = filetypes.objects().all()
         log('[init]', "Loading config from MongoDB")
     except Exception as e:
         log('[error]', f"Failed to load config from MongoDB: {e}")
-        # Handle the error appropriately, potentially using defaults
-    # check if difference and filetype are valid
     f = next((i for i in filetypes_datalist if i['name'] == filetype), None)
     if not f:
         log('[app]', f"[-] filetype not found")
@@ -273,8 +236,6 @@ def rundifferences(inclusionmethod, difference, filetype, browser):
     if not d:
         log('[app]', f"[-] difference not found")
         return 'difference not found'
-
-    # get difference and state from db
     try:
         result = Testcase.objects.filter(
             inclusionmethod=inclusionmethod,
@@ -283,44 +244,58 @@ def rundifferences(inclusionmethod, difference, filetype, browser):
             browser=browser
         ).only('includee_state').first()
         state = result.includee_state
-        # log('[app]', f"[+] testcase {result} has state {state}")
     except:
         log('[app]', 'difference for unknown test cases requested')
         return 'difference not in database'
-
-    # show the current diffeence as json
     if request.args.get('show', None):
         return jsonify(d['response0'], d['response1'])
 
-    # here we get response0 or response1 depending on state
     response_dict = d['response1'] if state else d['response0']
 
-    # get current settings with state
     if request.args.get('json', None):
         response_dict['state'] = 1 if state else 0
         return jsonify(response_dict)
 
-    # file_type can also be set from difference
     if response_dict.get('filetype', None):
         f = response_dict.get('filetype')
 
-    # cant use send_file because it adds etags :/
     with open(f"./filetemplates/{f['filetemplate']}", 'rb') as file:
         resp = make_response(file.read())
-
     resp.headers['Content-Type'] = f['contenttype']
-
-    # set statuscode
     resp.status_code = response_dict['status']
-    # set headers
     for h in response_dict['headers']:
         resp.headers[h['name']] = h['value']
 
     return resp
 
+@app.route('/runsitedetection',methods=['GET','POST'])
+def run_site_detection():
+    content = request.get_json()
+    logger = logging.getLogger()
+    streamHandler = logging.StreamHandler(sys.stdout)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    streamHandler.setFormatter(formatter)
+    logger.addHandler(streamHandler)
+    logger.setLevel(logging.INFO)
+    url=content["url"]
+    tests=testtemplate.objects().all()
+    results=[]
+    for test in tests:
+        try:
+            r=asyncio.run(maketest(url, "chromium",test, logger,True, True))
+            result={'test_name':test['test_name'],'test_description':test['test_description'],'test_result':r}
+            results.append(result)
+            print(f"testcase: {test['test_name']} testresults: {r}")
+        except Exception as e:
+            logger.error(f"[-] Error: {e}")
+    site_detection_results(url=url, results=results).save()
+    return  f"result: {url} test success!!"
+
+
+
+
 
 @app.route('/run/<inclusionmethod>/<difference>/<filetype>/<browser>')
-@demo_mode_check
 def run(inclusionmethod, difference, filetype, browser):
     basedomain = "127.0.0.1:9876"
     tasks.run_testcase.apply_async(args=[basedomain, inclusionmethod, difference, filetype, browser])
@@ -328,19 +303,28 @@ def run(inclusionmethod, difference, filetype, browser):
 
 
 @app.route('/tags/start', methods=['POST'])
-@demo_mode_check
 def tag_start():
-    # start the celery task for tagging
     test2.run_tagging()
     return "Started task of tagging all untagged results!"
 
 
 @app.route('/results/<_id>')
 def resultsforid(_id):
-    # print(_id)
     result=site_detection_results.objects.get(pk=_id)
-    print(result.to_json())
     return render_template('app/results.html',result=result.to_json())
+
+
+@app.route('/deletetesttemplate/<_id>')
+def deletetesttemplate(_id):
+    testtem=testtemplate.objects.get(pk=_id)
+    testtem.delete()
+    return "delete sucess"
+
+@app.route('/api/results/<_id>')
+def api_resultsforid(_id):
+    result=site_detection_results.objects.get(pk=_id)
+    return result.get_results()
+
 
 
 @app.route('/results/<inclusionmethod>/<difference>/<filetype>/<browser>')
@@ -356,26 +340,14 @@ def results(inclusionmethod, difference, filetype, browser):
         return jsonify('result entry not found')
     if not result.diff_results:
         return jsonify('result entry has no diff_results')
-    print(jsonify(result.diff_results))
     return jsonify(result.diff_results)
 
 
 @app.route('/api/elementgroup', methods=['POST'])
 def api_elementgroup():
-    # get post json data
     FILTERCONFIG = request.get_json(force=True)
-    print("FILTERCONFIG")
-    print(FILTERCONFIG)
     if not FILTERCONFIG:
         return 'filterconfig as json not found'
-    # # default config
-    # FILTERCONFIG = {
-    #     browsers: [],
-    #     onlyfindings: false,
-    #     limit: 50,
-    #     url: [],
-    #     state: []
-    # }
     dbargs = {}
     if FILTERCONFIG.get('onlyfindings'):
         dbargs['length__ne'] = 0
@@ -385,12 +357,9 @@ def api_elementgroup():
         dbargs['url__in'] = FILTERCONFIG.get('url')
     if FILTERCONFIG.get('browser') != []:
         dbargs['browser__in'] = FILTERCONFIG.get('browser')
-    # results = elementgroup.objects(**dbargs).only('url', 'inclusionmethods','state', 'domain', 'file','response','browser')
     results = elementgroup.objects(**dbargs).all()
-    print(results)
     total = results.count()
 
-    # sort
     order = request.args.get('order', default='')
     orderdir = request.args.get('dir', default='')
 
@@ -399,16 +368,11 @@ def api_elementgroup():
             results = results.order_by('-' + order)
         else:
             results = results.order_by(order)
-
-    # pagination
     offset = request.args.get('offset', type=int, default=-1)
     limit = request.args.get('limit', type=int, default=-1)
     if offset != -1 and limit != -1:
         results = results[offset:offset + limit]
     r = json.loads(results.to_json())
-    # TODO i want a dict for the json response
-    # this is not the slow part
-    # response
     return {
         'results': r,
         'total': total,
@@ -419,23 +383,12 @@ def api_elementgroup():
 @app.route('/api/testfun', methods=['POST'])
 def api_testfun():
     FILTERCONFIG = request.get_json(force=True)
-    print("FILTERCONFIG")
-    print(FILTERCONFIG)
     if not FILTERCONFIG:
         return 'filterconfig as json not found'
-    # # default config
-    # FILTERCONFIG = {
-    #     browsers: [],
-    #     onlyfindings: false,
-    #     limit: 50,
-    #     url: [],
-    #     state: []
-    # }
     results = testtemplate.objects.all()
-    print(results)
     total = results.count()
 
-    # sort
+
     order = request.args.get('order', default='')
     orderdir = request.args.get('dir', default='')
 
@@ -445,7 +398,7 @@ def api_testfun():
         else:
             results = results.order_by(order)
 
-    # pagination
+
     offset = request.args.get('offset', type=int, default=-1)
     limit = request.args.get('limit', type=int, default=-1)
     if offset != -1 and limit != -1:
@@ -454,9 +407,6 @@ def api_testfun():
     for item in r:
         if "_id" in item:
             item["_id"] = str(ObjectId(item["_id"]["$oid"]))
-    # TODO i want a dict for the json response
-    # this is not the slow part
-    # response
     return {
         'results': r,
         'total': total,
@@ -464,10 +414,7 @@ def api_testfun():
 
 @app.route('/api/results', methods=['POST'])
 def api_results():
-    # get post json data
     FILTERCONFIG = request.get_json(force=True)
-    print("FILTERCONFIG")
-    print(FILTERCONFIG)
     if not FILTERCONFIG:
         return 'filterconfig as json not found'
 
@@ -482,15 +429,9 @@ def api_results():
         dbargs['filetype__in'] = FILTERCONFIG.get('filetypes')
     if FILTERCONFIG.get('browsers') != []:
         dbargs['browser__in'] = FILTERCONFIG.get('browsers')
-    print("dbargs")
-    print(dbargs)
     results = Testcase.objects(**dbargs).only('inclusionmethod', 'difference', 'filetype', 'browser', 'length',
                                               'diff_tags')
-    print(type(results))
-    print(results)
     total = results.count()
-
-    # sort
     order = request.args.get('order', default='')
     orderdir = request.args.get('dir', default='')
 
@@ -499,21 +440,11 @@ def api_results():
             results = results.order_by('-' + order)
         else:
             results = results.order_by(order)
-
-    # pagination
     offset = request.args.get('offset', type=int, default=-1)
     limit = request.args.get('limit', type=int, default=-1)
     if offset != -1 and limit != -1:
         results = results[offset:offset + limit]
-
-    # TODO i want a dict for the json response
-    # this is not the slow part
     r = json.loads(results.to_json())
-    print("r:")
-    print(r)
-    print("total")
-    print(total)
-    # response
     return {
         'results': r,
         'total': total,
@@ -523,8 +454,6 @@ def api_results():
 @app.route('/api/sitedetectionresults', methods=['POST'])
 def api_sitedetectionresults():
     FILTERCONFIG = request.get_json(force=True)
-    print("FILTERCONFIG")
-    print(FILTERCONFIG)
     if not FILTERCONFIG:
         return 'filterconfig as json not found'
     dbargs = {}
@@ -532,11 +461,8 @@ def api_sitedetectionresults():
         dbargs['length__ne'] = 0
     if FILTERCONFIG.get('url') != []:
         dbargs['url__in'] = FILTERCONFIG.get('url')
-    print("dbargs")
-    print(dbargs)
     results = site_detection_results.objects().all()
     total = results.count()
-    # sort
     order = request.args.get('order', default='')
     orderdir = request.args.get('dir', default='')
 
@@ -545,25 +471,17 @@ def api_sitedetectionresults():
             results = results.order_by('-' + order)
         else:
             results = results.order_by(order)
-
-    # pagination
     offset = request.args.get('offset', type=int, default=-1)
     limit = request.args.get('limit', type=int, default=-1)
     if offset != -1 and limit != -1:
         results = results[offset:offset + limit]
 
-    # TODO i want a dict for the json response
-    # this is not the slow part
+
     r = json.loads(results.to_json())
-    print("r:")
-    print(r)
     for item in r:
         if "_id" in item:
             item["_id"] = str(ObjectId(item["_id"]["$oid"]))
-    print(r)
-    print("total")
-    print(total)
-    # response
+        item["results"] = str(item["results"])
     return {
         'results': r,
         'total': total,
@@ -573,20 +491,17 @@ def api_sitedetectionresults():
 @app.route('/api/saveresults', methods=['POST'])
 def api_saveresults():
     data = request.get_json()
-    print(data)
     site_detection_results(url=data.get('url'),results=data.get('results')).save()
     return f"result: {data.get('url')} add success!!"
 
 
 @app.route('/admin', methods=['GET', 'POST'])
-@demo_mode_check
 def admin():
     difference = []
     inclusionmethod = []
     filetype = []
     browser=[]
     try:
-        # Fetch configuration document from the collection
         differences_datalist=differences.objects().all()
         inclusionmethods_datalist=inclusionmethods.objects().all()
         filetypes_datalist=filetypes.objects().all()
@@ -602,9 +517,6 @@ def admin():
         log('[init]', "Loading config from MongoDB")
     except Exception as e:
         log('[error]', f"Failed to load config from MongoDB: {e}")
-        # Handle the error appropriately, potentially using defaults
-
-    # POST request to filter results
     if request.method == 'POST':
         if 'inclusionmethods' not in request.form:
             return 'inclusionmethod not found'
@@ -623,17 +535,14 @@ def admin():
         ).exclude('diff_results', 'logs', 'testsuite', 'url').all()
 
     if request.method == 'GET':
-        # how many to show
         if request.args.get('n'):
             n = int(request.args.get('n'))
         else:
             n = 100
 
         if request.args.get('findings'):
-            # return only findings where Testcase.length != 0
             results = Testcase.objects(length__ne=0).exclude('diff_results', 'logs', 'testsuite', 'url').all()
         else:
-            # return only latest testcases
             results = Testcase.objects.exclude('diff_results', 'logs', 'testsuite', 'url').order_by('-time').limit(n)
     return render_template('app/admin.html',
                            browsers=browser,
@@ -644,34 +553,20 @@ def admin():
                            )
 
 
-# tag single test case
+
 @app.route('/tag/<inclusionmethod>/<difference>/<filetype>/<browser>')
-@demo_mode_check
 def tag(inclusionmethod, difference, filetype, browser):
     tasks.run_tagging_single(inclusionmethod, difference, filetype, browser)
     return "Started task of tagging a single result!"
 
 
-
-# @app.route('/getelementgroup', methods=['GET','POST'])
-# @demo_mode_check
-# def getelementgroup():
-#     try:
-#         return render_template('app/getelementgroup.html')
-#     except Exception as e:
-#         log('[error]', f"Failed to convert page: {e}")
-#         return render_template('error.html', error_message=str(e))  # Return error message
-#
-
-
 @app.route('/sitedetectionresults', methods=['GET','POST'])
-@demo_mode_check
 def sitedetectionresults():
     try:
         return render_template('app/site_detection_results.html')
     except Exception as e:
         log('[error]', f"Failed to convert page: {e}")
-        return render_template('error.html', error_message=str(e))  # Return error message
+        return render_template('error.html', error_message=str(e))
 
 @app.route('/favicon.ico')
 def favicon():
@@ -688,9 +583,9 @@ def maxredirect():
             if n == 0:
                 return redirect(url)
             else:
-                return redirect(url_for('.index', n=n - 1, url=url), code=302)  # Use code=302 for temporary redirect
+                return redirect(url_for('.index', n=n - 1, url=url), code=302)
         else:
-            return "must have http", 400  # Return a 400 error for invalid URL
+            return "must have http", 400
 
     return "Ok"
 

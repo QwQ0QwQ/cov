@@ -6,13 +6,13 @@
     <script>
 
 
-        window.XSL_runInclusionMethod = async () => {
+        window.InclusionMethod = async () => {
             try{
-                window.XSL_import = await import('{{ url | safe }}')
+                window.import = await import('{{ url | safe }}')
             } catch (error) {
-                window.XSL_error = error
+                window.error = error
             }
-            console.log('[Testcase] XSL_runInclusionMethod called')
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

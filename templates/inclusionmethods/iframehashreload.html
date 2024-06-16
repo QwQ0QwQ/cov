@@ -4,36 +4,24 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('iframe')
-        window.XSL_reloads = 0
-        window.XSL_inclusionMethod.src = '{{ url | safe }}'
-        window.XSL_inclusionMethod.onload = () => {
-            // one onload 
-            window.XSL_reloads += 1
-            // wait a little bit i dont want to race
+        window.inclusionMethod = document.createElement('iframe')
+        window.reloads = 0
+        window.inclusionMethod.src = '{{ url | safe }}'
+        window.inclusionMethod.onload = () => {
+            window.reloads += 1
             setTimeout(() => {
-                // second onload ?
-                window.XSL_inclusionMethod.onload = () => {
-                    // stop it
-                    window.XSL_inclusionMethod.onload = null
-                    window.XSL_reloads += 1
-                    
-                    
+                window.inclusionMethod.onload = () => {
+                    window.inclusionMethod.onload = null
+                    window.reloads += 1
                 }
-                // this is not a full reaload if a "normal page is loaded"
-                 // #1337 will autofocus any focusable elements with id="1337"
-                window.XSL_inclusionMethod.src = window.XSL_inclusionMethod.src + '#1337'
+                window.inclusionMethod.src = window.inclusionMethod.src + '#1337'
             }, 500)
-            
-            
+        }
+        window.InclusionMethod = () => {
+            document.body.appendChild(window.inclusionMethod)
+            console.log('[Testcase] InclusionMethod called')
         }
         
-        window.XSL_runInclusionMethod = () => {
-            document.body.appendChild(window.XSL_inclusionMethod)
-            console.log('[Testcase] XSL_runInclusionMethod called')
-        }
-        
-    
 
     </script>
 </body>

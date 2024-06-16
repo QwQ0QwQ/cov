@@ -19,4 +19,3 @@ const leak = async (url) => {
 }
 
 
-export { leak }

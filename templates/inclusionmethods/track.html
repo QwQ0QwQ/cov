@@ -4,15 +4,15 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('video')
-        window.XSL_track = document.createElement('track')
-        window.XSL_track.setAttribute('default', 'default')
-        window.XSL_track.src = '{{ url | safe }}'
+        window.inclusionMethod = document.createElement('video')
+        window.track = document.createElement('track')
+        window.track.setAttribute('default', 'default')
+        window.track.src = '{{ url | safe }}'
         
     
-        window.XSL_runInclusionMethod = () => {
-            window.XSL_inclusionMethod.append(window.XSL_track)
-            console.log('[Testcase] XSL_runInclusionMethod called')
+        window.InclusionMethod = () => {
+            window.inclusionMethod.append(window.track)
+            console.log('[Testcase] InclusionMethod called')
         }
     </script>
 </body>

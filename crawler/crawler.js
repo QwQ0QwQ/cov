@@ -1,8 +1,6 @@
 (async function () {
 
     var Crawler = function () {
-
-        /* Create the crawler object, which we will return later on. */
         var newCrawler = {
 
             log: {
@@ -1630,12 +1628,12 @@
 
                 var makeEventListener = (srcObj, eventName) => {
                     return (event) => {
-                        if (!srcObj["XSL_events"]) srcObj["XSL_events"] = {}
-                        if (!srcObj["XSL_events"][eventName]) srcObj["XSL_events"][eventName] = []
+                        if (!srcObj["events"]) srcObj["events"] = {}
+                        if (!srcObj["events"][eventName]) srcObj["events"][eventName] = []
                         // overwrite timeStamp
                         Object.defineProperty(event, 'timeStamp', {})
                         // add event so we can crawl it
-                        srcObj["XSL_events"][eventName].push(event)
+                        srcObj["events"][eventName].push(event)
                         console.log(`[EventListener Module] triggered ${eventName} on ${srcObj}`)
                     }
                 }

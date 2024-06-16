@@ -1,5 +1,4 @@
-import { TEST_URL } from './../config.js'
-let RESOURCE = `${TEST_URL}testcases/files/image1.gif`
+let RESOURCE = `http://127.0.0.1:7000/testcases/files/image1.gif`
 
 
 const sleep = (ms) => {
@@ -127,4 +126,3 @@ const leak = async (url) => {
 }
 
 
-export { leak }

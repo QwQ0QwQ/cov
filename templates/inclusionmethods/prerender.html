@@ -4,14 +4,14 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('link')
-        window.XSL_inclusionMethod.rel = 'prerender'
-        window.XSL_inclusionMethod.href = '{{ url | safe }}'
+        window.inclusionMethod = document.createElement('link')
+        window.inclusionMethod.rel = 'prerender'
+        window.inclusionMethod.href = '{{ url | safe }}'
 
 
-        window.XSL_runInclusionMethod = () => {
-            document.head.appendChild(window.XSL_inclusionMethod)
-            console.log('[Testcase] XSL_runInclusionMethod called')
+        window.InclusionMethod = () => {
+            document.head.appendChild(window.inclusionMethod)
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

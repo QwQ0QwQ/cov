@@ -40,4 +40,3 @@ const sleep = (ms) => {
 }
 
 
-export { leak }

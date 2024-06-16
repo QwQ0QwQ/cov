@@ -17,9 +17,8 @@ const leak = async (url) => {
         else{
             return 0
         }
-        
-    })  
+    })
 }
 
 
-export { leak }
+// export { leak }

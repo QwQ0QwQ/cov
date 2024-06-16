@@ -4,19 +4,19 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('object')
-        window.XSL_reloads = 0
-        window.XSL_inclusionMethod.data = '{{ url | safe }}'
-        window.XSL_inclusionMethod.onload = () => {
-            // one onload 
-            window.XSL_reloads += 1
-            // wait a little bit i dont want to race
+        window.inclusionMethod = document.createElement('object')
+        window.reloads = 0
+        window.inclusionMethod.data = '{{ url | safe }}'
+        window.inclusionMethod.onload = () => {
+
+            window.reloads += 1
+
             setTimeout(() => {
-                // second onload ?
-                window.XSL_inclusionMethod.onload = () => {
-                    // stop it
-                    window.XSL_inclusionMethod.onload = null
-                    window.XSL_reloads += 1
+
+                window.inclusionMethod.onload = () => {
+
+                    window.inclusionMethod.onload = null
+                    window.reloads += 1
                     
                     
                 }

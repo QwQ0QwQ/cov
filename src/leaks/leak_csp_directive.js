@@ -28,5 +28,3 @@ const leak = async(url, csp='default-src \'self\';') => {
 
 }
 
-
-export { leak }

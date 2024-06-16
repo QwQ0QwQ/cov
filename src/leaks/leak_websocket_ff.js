@@ -57,4 +57,3 @@ const leak = async(url, waitTime=3000, max=200) => {
     return res
 }
 
-export { leak }

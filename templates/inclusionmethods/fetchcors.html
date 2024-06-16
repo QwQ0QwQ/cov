@@ -6,13 +6,13 @@
     <script>
 
 
-        window.XSL_runInclusionMethod = async () => {
+        window.InclusionMethod = async () => {
             try{
-                window.XSL_fetchresponse = await fetch('{{ url | safe }}', {mode: 'cors', credentials: 'include'})
+                window.fetchresponse = await fetch('{{ url | safe }}', {mode: 'cors', credentials: 'include'})
             } catch (error) {
-                window.XSL_error = error
+                window.error = error
             }
-            console.log('[Testcase] XSL_runInclusionMethod called')
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

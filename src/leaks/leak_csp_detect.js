@@ -1,4 +1,4 @@
-import { TEST_URL } from "./../config.js";
+let TEST_URL ='http://127.0.0.1:7000'
 
 const leak = async (url) => {
     return new Promise(r => {
@@ -32,5 +32,3 @@ const leak = async (url) => {
 }
 
 
-
-export {leak}

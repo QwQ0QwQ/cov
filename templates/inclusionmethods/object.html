@@ -4,13 +4,13 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('object')
-        window.XSL_inclusionMethod.data = '{{ url | safe }}'
+        window.inclusionMethod = document.createElement('object')
+        window.inclusionMethod.data = '{{ url | safe }}'
 
 
-        window.XSL_runInclusionMethod = () => {
-            document.body.appendChild(window.XSL_inclusionMethod)
-            console.log('[Testcase] XSL_runInclusionMethod called')
+        window.InclusionMethod = () => {
+            document.body.appendChild(window.inclusionMethod)
+            console.log('[Testcase] InclusionMethod called')
         }
         
     </script>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>XS-Leaks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Language" content="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/static/css/prism.css" />
+    <link rel="stylesheet" href="/static/css/solid.min.css">
+    <link rel="stylesheet" href="/static/css/brands.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <style>
+        .ebtn {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        select {
+            height: 100px;
+        }
+
+        .flt_multi {
+            height: 200px !important;
+        }
+
+        table.TF {
+            caption-side: top;
+            display: none;
+        }
+
+        table.TF td {
+            text-overflow: unset !important;
+            height: 35px;
+            max-width: 550px;
+            white-space: nowrap;
+        }
+
+        table.path-table td {
+            max-width: 100px;
+            overflow-x: hidden;
+            white-space: nowrap;
+            text-overflow: scroll;
+        }
+
+        /* first td can be longer */
+        table.path-table td:first-child {
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .tags {
+            overflow: overlay;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .tags::-webkit-scrollbar {
+            display: none;
+        }
+
+        .icons {
+            white-space: nowrap;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Adjusting testNeedsWindow height */
+        #testNeedsWindow {
+            height: 100px;
+        }
+
+    </style>
+    <script src="{{ url_for('static', filename='js/tablefilter/tablefilter.js') }}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">XS-Leaks</a>
+            <small>finding XS-Leaks with element groups</small>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">
+                            <span class="fa-solid fa-screwdriver-wrench"></span> Admin
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/testfun">
+                            <span class="fa-solid fa-screwdriver-wrench"></span> TestTemplate
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/site_detection">
+                            <span class="fa-solid fa-screwdriver-wrench"></span> site_detection
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container mt-4">
+    <form action="/testfun">
+        <div class="mb-3">
+            <label for="testName" class="form-label">Test Name</label>
+            <input type="text" class="form-control" id="testName" placeholder="Enter test name" value="Performance API Error Leak">
+        </div>
+        <div class="mb-3">
+            <label for="testCategory" class="form-label">Test Category</label>
+            <input type="text" class="form-control" id="testCategory" placeholder="Enter test category" value="Status Code">
+        </div>
+        <div class="mb-3">
+            <label for="testDescription" class="form-label">Test Description</label>
+            <textarea class="form-control" id="testDescription" rows="3" placeholder="Enter test description">Detect errors with Performance API.</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="testFile" class="form-label">Test File</label>
+            <input type="text" class="form-control" id="testFile" placeholder="Enter test file path" value="./src/leaks/leak_performance_error.js">
+        </div>
+        <div class="mb-3">
+            <label for="testTimeout" class="form-label">Test Timeout</label>
+            <input type="number" class="form-control" id="testTimeout" placeholder="Enter test timeout in milliseconds" value="5000">
+        </div>
+        <div class="mb-3">
+            <label for="testNeedsWindow" class="form-label">Test Needs Window</label>
+            <select class="form-select" id="testNeedsWindow">
+                <option value="false" selected>False</option>
+                <option value="true">True</option>
+            </select>
+        </div>
+        <!-- Text area for adding script content -->
+        <div class="mb-3">
+            <label for="testScript" class="form-label">Test Script</label>
+            <textarea class="form-control" id="testScript" rows="5" placeholder="Enter test script content"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="window.location.href='/testfun'">Submit</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='/js/admin.js') }}"></script>
+</body>
+</html>

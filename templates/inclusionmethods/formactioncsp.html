@@ -6,13 +6,13 @@
 </head>
 <body>
     <script>
-        window.XSL_inclusionMethod = document.createElement('form')
-        window.XSL_inclusionMethod.action = '{{ url | safe }}'
+        window.inclusionMethod = document.createElement('form')
+        window.inclusionMethod.action = '{{ url | safe }}'
 
-        window.XSL_runInclusionMethod = () => {
-            console.log('[Testcase] XSL_runInclusionMethod called')
-            document.body.appendChild(window.XSL_inclusionMethod)
-            window.XSL_inclusionMethod.submit();
+        window.InclusionMethod = () => {
+            console.log('[Testcase]InclusionMethod called')
+            document.body.appendChild(window.inclusionMethod)
+            window.inclusionMethod.submit();
             
         }
         

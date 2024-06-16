@@ -144,6 +144,7 @@
             </div>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='/add_testtemplate'">Add Testtemplate</button>
     <div class="modal" id="mainmodal" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
@@ -158,6 +159,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal" id="pathmodal" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog modal-fullscreen modal-dialog-centered">
             <div class="modal-content">
@@ -236,13 +238,10 @@
                         result.test_file,
                         result.test_timeout,
                         result.test_needswindow,
-                        // gridjs.html(`
-                        // <a class="showdetails link-dark" href="/details/${name}" title="Show Details"><i class="fa-regular fa-circle-info pe-none"></i></a>
-                        // <a class="showlogs link-dark" href="/logs/${name}" title="Show Execution and Browser Logs"><i class="fa-solid fa-file-code pe-none"></i></a>
-                        // <a target="_blank" class="link-dark" href="/test/${name}" title="Open Test Case"><i class="fa-solid fa-flask-vial"></i></a>
-                        // <a target="_blank" class="link-dark" href="/results/${name}" title="Show Results"><i class="fa-solid fa-square-poll-vertical"></i></a>
-                        // <a target="_blank" class="link-dark" href="/exploit/${name}" title="Exploit"><i class="fa-solid fa-bolt"></i></a>
-                        // `), //Actions
+                        gridjs.html(`
+                        <a  href="/deletetesttemplate/${result._id}" title="delete testtemplate"><i class="fa-regular fa-circle-info pe-none"></i></a>
+                        <a  href="/add_testtemplate/" title="modify testtemplate"><i class="fa-solid fa-file-code pe-none"></i></a>
+                        `), //Actions
                     ]
                 }),
                 total: data => data.total

@@ -1,5 +1,5 @@
 // setup
-let attackerUrl = "https://xsinator.com/testcases/files/maxredirect.php"
+let attackerUrl = "https://127.0.0.1:9876/testcases/files/maxredirect.php"
 
 
 const leak = async (url) => {
@@ -27,4 +27,3 @@ const sleep = (ms) => {
     return new Promise(r => setTimeout(r, ms));
 }
 
-export { leak }
